@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/04 17:43:46 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/09/04 17:47:32 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ RESET		= \033[0m\n
 
 # Files
 CPP 		= main
-CLASS		= PhoneBook
+CLASS		= PhoneBook \
+				Contact
 FILES		= $(CPP:= $(CLASS))
 
 SRCS		= $(FILES:=.cpp)

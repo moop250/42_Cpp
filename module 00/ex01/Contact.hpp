@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:38:34 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/04 14:41:09 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/04 17:47:08 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 	std::string	nickName;
 	std::string	phoneNumber;
 	std::string	darkestSecret;
-	std::string	index;
+	int			index;
 
 public:
 
