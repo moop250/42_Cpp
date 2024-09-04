@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/03 17:27:52 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/09/03 18:13:57 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ re: fclean all
 
 help:
 	@echo "\033[0;36mmake\033[0m : complies the project."
-	@echo "\033[0;36mmake all\033[0m : complies the project and the bonus."
+	@echo "\033[0;36mmake all\033[0m : complies the project."
 	@echo "\033[0;36mmake re\033[0m : recompiles the project."
 	@echo "\033[0;36mmake debug\033[0m : runs the program in debug mode."
 	@echo "\033[0;36mmake clean\033[0m : removes the executable."
