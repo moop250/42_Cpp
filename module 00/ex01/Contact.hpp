@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:38:34 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/05 21:07:29 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/05 23:17:59 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_H
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 class	Contact {
@@ -28,7 +29,7 @@ private:
 	int			_index;
 
 	std::string	_getInput(std::string str) const;
-	std::string _truncator(std::string str) const;
+	std::string	_truncator(std::string str) const;
 
 public:
 
@@ -38,7 +39,8 @@ public:
 	void	init(void);
 	void	setIndex(int i);
 	void	show(void);
-	void	displayContact(void);
+	void	displayContact(int i) const;
+	bool	vaild;
 };
 
 #endif // !CONTACT_H
