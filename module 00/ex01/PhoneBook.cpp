@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:12:01 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/06 01:25:44 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/06 01:35:47 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void PhoneBook::search() {
 	std::cout << "|     Index|      Name| Last Name|  Nickname|\n";
 	for (int i = 0; i < 8; ++i)
 		this->_contacts[i].show();
-	std::cout << "---------------------------------------------\n";
+	std::cout << "---------------------------------------------\n" << std::flush;
 	int tmp = std::atoi(_getNum("What index would you like to see: ").c_str());
 	this->_contacts[tmp].displayContact(tmp);
 }

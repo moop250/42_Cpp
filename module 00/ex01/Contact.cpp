@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:57:04 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/06 01:14:13 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/06 01:34:51 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void Contact::displayContact(int i) const{
 	std::cout << "Nickname:          [" << this->_nickname << "]\n";
 	std::cout << "Phone Number:      [" << this->_phoneNumber << "]\n";
 	std::cout << "Darkest Secret:    [" << this->_darkestSecret << "]\n";
-	std::cout << std::endl;
+	std::cout << std::endl << std::flush;
 }

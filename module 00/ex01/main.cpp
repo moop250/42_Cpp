@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:12:01 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/05 21:50:29 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/06 01:38:15 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main(void) {
 		std::cout << "# " << std::flush;
 		std::getline(std::cin, input);
 	}
+	std::cout << "Exiting phonebook.";
 	return (0);
 }
