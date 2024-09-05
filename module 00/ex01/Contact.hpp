@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:38:34 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/04 17:47:08 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/05 21:07:29 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,31 @@
 # define CONTACT_H
 
 #include <iostream>
+#include <string>
 
 class	Contact {
 
 private:
 	
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickName;
-	std::string	phoneNumber;
-	std::string	darkestSecret;
-	int			index;
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string	_nickname;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
+	int			_index;
+
+	std::string	_getInput(std::string str) const;
+	std::string _truncator(std::string str) const;
 
 public:
 
 	Contact( void );
 	~Contact( void );
+
+	void	init(void);
+	void	setIndex(int i);
+	void	show(void);
+	void	displayContact(void);
 };
 
 #endif // !CONTACT_H

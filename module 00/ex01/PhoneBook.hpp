@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:31:46 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/04 17:46:52 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/05 20:53:24 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class	PhoneBook {
 
 private:
-	Contact contacts[8];
+	Contact _contacts[8];
 
 public:
 
@@ -27,6 +27,8 @@ public:
 	~PhoneBook(void);
 
 	void	welcome(void);
+	void	addContact(void);
+	void	search(void);
 };
 
 #endif // !PHONEBOOK_H
