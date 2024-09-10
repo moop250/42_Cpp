@@ -6,12 +6,12 @@
 #    By: hlibine <hlibine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/06 01:37:24 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/09/10 18:58:53 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= phonebook
+NAME		= tests
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
