@@ -6,12 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:12:01 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/06 01:38:15 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/06 01:41:06 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstring>
-#include <iostream>
 #include <string>
 #include "PhoneBook.hpp"
 
