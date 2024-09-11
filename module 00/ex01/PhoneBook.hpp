@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:31:46 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/06 00:32:20 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/11 15:07:24 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class	PhoneBook {
 
 private:
-	Contact		_contacts[8];
+	Contact		contacts_[8];
 
-	std::string _getNum(std::string str) const;
-	bool		_isNum(std::string str) const;
+	std::string getNum_(std::string str) const;
+	bool		isNum_(std::string str) const;
 
 public:
 

@@ -6,14 +6,13 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 01:36:06 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/10 19:05:01 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/10 19:11:25 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Account.hpp"
 #include <ctime>
-#include <ostream>
 
 Account::Account(int initial_deposit) {
 	this->_accountIndex = Account::_nbAccounts;

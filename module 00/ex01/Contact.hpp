@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:38:34 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/05 23:17:59 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/09/11 15:13:11 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ class	Contact {
 
 private:
 	
-	std::string	_firstName;
-	std::string	_lastName;
-	std::string	_nickname;
-	std::string	_phoneNumber;
-	std::string	_darkestSecret;
-	int			_index;
+	std::string	firstName_;
+	std::string	lastName_;
+	std::string	nickname_;
+	std::string	phoneNumber_;
+	std::string	darkestSecret_;
+	int			index_;
+	bool		vaild_;
 
-	std::string	_getInput(std::string str) const;
-	std::string	_truncator(std::string str) const;
+	std::string	getInput_(std::string str) const;
+	std::string	truncator_(std::string str) const;
 
 public:
 
@@ -40,7 +41,7 @@ public:
 	void	setIndex(int i);
 	void	show(void);
 	void	displayContact(int i) const;
-	bool	vaild;
+	bool	getvaild(void) const;
 };
 
 #endif // !CONTACT_H
