@@ -6,12 +6,12 @@
 #    By: hlibine <hlibine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/12 14:13:27 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/09/12 16:56:11 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= "Moar brainz!"
+NAME		= "horde"
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -28,7 +28,7 @@ RESETNL		= \033[0m\n
 
 # Files
 CPP 		= main \
-				zombieHoard
+				zombieHorde
 CLASS		= Zombie
 FILES		= $(CPP) $(CLASS)
 
