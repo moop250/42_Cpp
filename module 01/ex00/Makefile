@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/11 15:44:18 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/09/12 13:29:26 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CPP 		= main \
 				newZombie \
 				randomChump
 CLASS		= Zombie
-FILES		= $(CPP:= $(CLASS))
+FILES		= $(CPP) $(CLASS)
 
 SRCS		= $(FILES:=.cpp)
 OBJS		= $(addprefix $(OBJDIR)/, $(FILES:=.o))
