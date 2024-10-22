@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 14:48:50 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/13 17:21:17 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/21 17:16:21 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int ac, char **av) {
 
 	while (getline(infile, buff))
 		toReplace.append(buff).append("\n");
-	std::cout << toReplace << std::endl;
 	std::string tmp = av[1];
 	tmp.append(".replace");
 	std::ofstream outfile(tmp.c_str());
