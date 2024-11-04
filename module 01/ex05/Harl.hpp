@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:04:54 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/01 16:34:50 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/11/04 15:28:35 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,4 @@ public:
 	void	complain(std::string level);
 };
 
-typedef void (Harl::*t_func) (void);
+typedef void (Harl::*t_func)(void);
