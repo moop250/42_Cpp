@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:04:54 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/04 16:59:12 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/11/04 17:02:30 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 class Harl {
 private:
-	void						debug(void);
-	void						info(void);
-	void						warning(void);
-	void						error(void);
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 
 public:
 	Harl(void);
