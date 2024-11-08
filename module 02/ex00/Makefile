@@ -6,12 +6,12 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/10/23 14:45:41 by hlibine          ###   ########.fr        #
+#    Updated: 2024/11/08 14:00:20 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= replace
+NAME		= Fixed
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -28,7 +28,7 @@ RESETNL		= \033[0m\n
 
 # Files
 CPP 		= main
-SUPP		= stringReplace
+SUPP		= Fixed
 FILES		= $(CPP) $(SUPP)
 
 SRCS		= $(FILES:=.cpp)
