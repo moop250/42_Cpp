@@ -6,12 +6,12 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/11/08 16:57:33 by hlibine          ###   ########.fr        #
+#    Updated: 2024/11/04 16:28:41 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= Fixed
+NAME		= harlFilter
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -28,7 +28,7 @@ RESETNL		= \033[0m\n
 
 # Files
 CPP 		= main
-SUPP		= Fixed
+SUPP		= Harl
 FILES		= $(CPP) $(SUPP)
 
 SRCS		= $(FILES:=.cpp)

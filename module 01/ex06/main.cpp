@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 13:59:33 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/08 16:57:23 by hlibine          ###   ########.fr       */
+/*   Created: 2024/11/01 16:03:34 by hlibine           #+#    #+#             */
+/*   Updated: 2024/11/04 16:56:56 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
-class Fixed {
-private:
-	int					value_;
-	static const int	fractionalBits_ = 8;
+int main(int ac, char **av)
+{
+	Harl		harl;
+	std::string upper;
 
-public:
-	Fixed(void);
-	Fixed(const Fixed &src);
-	Fixed &operator=(const Fixed &src);
-	~Fixed(void);
-	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
-};
+	if (ac < 2)
+		return 1;
+
+	for (int i = 0; av[1][i]; i++)
+		upper += std::toupper(av[1][i]);
+
+	harl.complain(upper);
+	return 0;
+}
