@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hlibine <hlibine@student.42.fr>            +#+  +:+       +#+         #
+#    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/09/13 17:23:38 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2024/10/23 14:45:41 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= main
+NAME		= replace
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
