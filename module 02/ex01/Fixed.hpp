@@ -6,16 +6,18 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:59:33 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/11 15:08:16 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/11/13 16:20:29 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <math.h>
 
 class Fixed {
 private:
 	int					value_;
 	static const int	fractionalBits_ = 8;
+	friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 public:
 	Fixed(void);
@@ -30,3 +32,4 @@ public:
 	int		toInt(void) const;
 	float	toFloat(void) const;
 };
+
