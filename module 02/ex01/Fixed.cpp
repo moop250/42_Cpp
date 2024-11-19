@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:01:02 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/13 16:30:13 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/11/19 14:44:38 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,14 @@ Fixed& Fixed::operator=( const Fixed &src)
 	return *this;
 }
 
-Fixed::Fixed(const int value)
+Fixed::Fixed(const int value) : value_(value << this->fractionalBits_)
 {
 	std::cout << "Int constructor called" << std::endl;
-	if (value)
-		this->value_ = value << this->fractionalBits_;
 }
 
-Fixed::Fixed(const float value)
+Fixed::Fixed(const float value) : value_(roundf(value * (1 << this->fractionalBits_)))
 {
 	std::cout << "Float constructor called" << std::endl;
-	if (value)
-		this->value_ = roundf(value * (1 << this->fractionalBits_));
 }
 
 Fixed::~Fixed()
@@ -69,6 +65,8 @@ float Fixed::toFloat(void) const
 {
 	return (float)this->value_ / (1 << this->fractionalBits_);
 }
+
+//Fixing print issue
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
