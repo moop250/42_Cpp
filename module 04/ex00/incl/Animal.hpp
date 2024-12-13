@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:30 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/10 15:39:58 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/13 15:42:16 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 	protected:
-		std::string type;
+		std::string type_;
 
 	public:
 	// Constructors and Destructors

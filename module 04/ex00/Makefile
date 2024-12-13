@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/12/10 14:12:08 by hlibine          ###   ########.fr        #
+#    Updated: 2024/12/13 16:47:54 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR		= .obj
+SRCSDIR		= srcs
+INCLDIR		= incl
 
 # Colors
 GREEN		= \033[0;32m
@@ -30,12 +32,15 @@ RESETNL		= \033[0m\n
 CPP 		= main
 SUPP		= Animal \
 				Cat \
-				Dog
-FILES		= $(CPP) $(SUPP)
+				Dog \
+				WrongAnimal \
+				WrongCat
+
+FILES		= $(addprefix $(SRCSDIR)/, $(CPP)) $(addprefix $(SRCSDIR)/, $(SUPP))
 
 SRCS		= $(FILES:=.cpp)
-OBJS		= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= $(CLASS:=.hpp)
+OBJS		= $(addprefix $(OBJDIR)/, $(notdir $(FILES:=.o)))
+HEADER		= $(addprefix $(INCLDIR)/, $(SUPP:=.hpp))
 
 # Rules
 all: $(NAME)
@@ -46,12 +51,12 @@ $(NAME): $(SRCS) $(HEADER) $(OBJS)
 	@printf "\r\033[K"
 	@printf "$(GREEN)$(NAME) compiled$(RESETNL)"
 
-$(OBJDIR)/%.o: %.cpp $(HEADER)
-	@mkdir -p $(dir $@)
+$(OBJDIR)/%.o: $(SRCSDIR)/%.cpp $(HEADER)
+	@mkdir -p $(OBJDIR)
 	@printf "$(ORANGE)Compiling $@...$(RESET)"
 	@$(CC) $(FLAGS) -c $< -o $@
 	@printf "\r\033[K"
-	@printf "\033[0;32m$(GREEN)$@ compiled!$(RESETNL)"
+	@printf "$(GREEN)$@ compiled!$(RESETNL)"
 
 clean:
 	@printf "$(ORANGE)Cleaning up...$(RESET)"

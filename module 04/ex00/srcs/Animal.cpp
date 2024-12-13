@@ -6,32 +6,32 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:29 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/10 15:44:48 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/13 16:56:31 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../incl/Animal.hpp"
 
 
 /*   Constructors and Destructors   */
 
 Animal::Animal()
 {
-	this->type = "Unspeakable Horror";
+	this->type_ = "Boring Animal";
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
 Animal::Animal(std::string type)
 {
-	this->type = type;
-	std::cout << "Named Animal constructor called" << std::endl;
+	this->type_ = type;
+	std::cout << "Animal With Type constructor called" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& src)
 {
-	std::cout << "Assignation Animal constructor called" << std::endl;
+	std::cout << "Animal Assignation constructor called" << std::endl;
 	if (this != &src)
-		this->type = src.type;
+		this->type_ = src.type_;
 	return *this;
 }
 
@@ -44,10 +44,10 @@ Animal::~Animal(void)
 
 std::string Animal::getType(void) const
 {
-	return this->type;
+	return this->type_;
 }
 
 void Animal::makeSound(void) const
 {
-	std::cout << this->type << "makes a sound" << std::endl;
+	std::cout << this->type_ << " makes a sound " << std::endl;
 }

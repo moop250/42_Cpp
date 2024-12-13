@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:11:32 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/10 14:13:32 by hlibine          ###   ########.fr       */
+/*   Created: 2024/12/13 16:36:44 by hlibine           #+#    #+#             */
+/*   Updated: 2024/12/13 16:39:13 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+#ifndef WRONGANIMALCLASS_HPP
+# define WRONGANIMALCLASS_HPP
+
+#include <iostream>
+
+class WrongAnimal
 {
-	return 0;
-}
+	protected:
+		std::string type_;
+
+	public:
+	// Constructors and Destructors
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		WrongAnimal &operator=(const WrongAnimal &src);
+		virtual ~WrongAnimal(void);
+	// Class Functions
+		std::string getType(void) const;
+		virtual void makeSound(void) const;
+};
+
+#endif
