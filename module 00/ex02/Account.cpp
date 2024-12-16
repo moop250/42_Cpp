@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 01:36:06 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/10 19:11:25 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/16 14:37:49 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Account::Account(int initial_deposit) {
 }
 
 Account::~Account(void) {
-	--Account::_nbAccounts;
 	Account::_totalAmount -= this->_amount;
 	Account::_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
