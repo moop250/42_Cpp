@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:04:57 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/02 13:37:46 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/18 16:25:57 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
-	t_func		funcs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string	levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int			i = 0;
+	const hFunc			funcs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	const std::string	levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	while (i < 4 && levels[i].compare(level))
-		++i;
-	if (i < 4)
-		(this->*funcs[i])();
+	for (int i = 0; i < 4; i++) {
+		if (!level.compare(levels[i])) {
+			(this->*funcs[i])();
+			return ;
+		}
+	}
+	std::cout << "Invalid level" << std::endl;
 }

@@ -6,28 +6,30 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:42:07 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 16:23:15 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/18 14:02:16 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {
-}
-
-Zombie::Zombie(std::string str) : name_(str) {
+Zombie::Zombie(void) : name_("Default"), id_(0) {
+	std::cout << "Default contstructor called" << std::endl; 
 }
 
 Zombie::~Zombie(void) {
-	std::cout << name_ << " destroyed" << std::endl;
+	std::cout << this->name_ << " [" << this->id_ << "] destroyed" << std::endl;
 	return ;
 }
 
 void	Zombie::announce(void) {
-	std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->name_ << " [" << this->id_
+		<< "] : BraiiiiiiinnnzzzZ..." << std::endl;
 	return ;
 }
 
-void	Zombie::give_name(std::string str) {
+void	Zombie::setInfo(std::string &str, size_t i) {
 	this->name_ = str;
+	this->id_ = i;
+
+	std::cout << "Assigned name " << this->name_ << " with id " << this->id_ << std::endl;
 }

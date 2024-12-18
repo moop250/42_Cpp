@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:12:09 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 22:14:36 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/18 15:54:26 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ HumanB::HumanB(std::string name) : name_(name){
 }
 
 HumanB::~HumanB(void) {
-	std::cout << name_ << " destroyed" << std::endl;
+	std::cout << this->name_ << " destroyed" << std::endl;
 	return ;
 }
 
@@ -29,4 +29,6 @@ void HumanB::setWeapon(Weapon& weapon) {
 void	HumanB::attack(void) {
 	if (this->weapon_)
 		std::cout << this->name_ << " attacks with thier " << this->weapon_->getType() << std::endl;
+	else
+		std::cout << this->name_ << " has no weapon, and cannot attack" << std::endl;
 }

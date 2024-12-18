@@ -6,9 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 16:04:54 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/04 17:02:30 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/18 16:40:38 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HARL_CLASS_H
+# define HARL_CLASS_H
 
 #include <string>
 #include <iostream>
@@ -33,3 +36,5 @@ enum {
 	WARNING,
 	ERROR
 };
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:12:08 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 21:38:17 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/18 15:53:02 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	~HumanA(void);
 
 	void attack(void);
+	void setWeapon(Weapon& weapon);
 };
 
 #endif // !DEBUG

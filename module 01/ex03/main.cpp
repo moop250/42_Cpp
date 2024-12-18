@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:12:15 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 22:13:48 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/18 15:57:19 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 
 int	main(void) {
 	Weapon club = Weapon("crude spiked club");
+	Weapon bat = Weapon("baseball bat");
 	HumanA bob("Bob", club);
 	bob.attack();
 	club.setType("some other type of club");
+	bob.attack();
+	bob.setWeapon(bat);
 	bob.attack();
 
 	Weapon baton = Weapon("police baton");
@@ -27,5 +30,7 @@ int	main(void) {
 	jim.setWeapon(baton);
 	jim.attack();
 	baton.setType("some other type of baton");
+	jim.attack();
+	jim.setWeapon(bat);
 	jim.attack();
 }

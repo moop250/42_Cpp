@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:42:12 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 16:22:06 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/18 14:02:13 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 class Zombie {
 private:
 	std::string	name_;
+	size_t		id_;
 
 public:
 	Zombie(void);
-	Zombie(std::string str);
 	~Zombie(void);
 	
-	void	give_name(std::string str);
+	void	setInfo(std::string &str, size_t id);
 	void	announce(void);
 };
 
