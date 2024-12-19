@@ -6,12 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:50:32 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/13 15:51:47 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/19 15:59:27 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOGCLASS_HPP
-# define DOGCLASS_HPP
+#ifndef DOG_CLASS_HPP
+# define DOG_CLASS_HPP
 
 #include "Animal.hpp"
 

@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 16:36:44 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 15:59:41 by hlibine          ###   ########.fr       */
+/*   Created: 2024/12/19 16:16:48 by hlibine           #+#    #+#             */
+/*   Updated: 2024/12/19 16:27:10 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_CLASS_HPP
-# define WRONGANIMAL_CLASS_HPP
+#ifndef BRAIN_CLASS_HPP
+# define BRAIN_CLASS_HPP
 
-#include <iostream>
+# include <iostream>
 
-class WrongAnimal
-{
-	protected:
-		std::string type_;
+class Brain {
+	private:
+		std::string ideas_[100];
 
 	public:
-	// Constructors and Destructors
-		WrongAnimal();
-		WrongAnimal(std::string type);
-		WrongAnimal &operator=(const WrongAnimal &src);
-		virtual ~WrongAnimal(void);
-	// Class Functions
-		std::string getType(void) const;
-		virtual void makeSound(void) const;
+		Brain();
+		Brain(const Brain &src);
+		Brain &operator=(const Brain &src);
+		virtual ~Brain(void);
+		std::string getIdea(int index) const;
 };
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:17:04 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/13 15:39:09 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/19 15:59:16 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CATCLASS_HPP
-# define CATCLASS_HPP
+#ifndef CAT_CLASS_HPP
+# define CAT_CLASS_HPP
 
 #include "Animal.hpp"
 
