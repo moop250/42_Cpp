@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:32 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 16:54:57 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/21 15:19:39 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,32 @@ void defaultAnimals()
 	b.makeSound();
 	c.makeSound();
 	d.makeSound();
-	
+	std::cout << std::endl;
+}
+
+void ideas()
+{
+	Dog a;
+	Dog b;
+	Cat c;
+	Cat d;
+
+	std::cout << std::endl;
+	std::cout << "Ideas" << std::endl;
+	a.printIdeas();
 	b.printIdeas();
 	c.printIdeas();
+	d.printIdeas();
+	std::cout << std::endl;
+}
+
+void leakTest()
+{
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << std::endl;
+	delete j;
+	delete i;
 	std::cout << std::endl;
 }
 
@@ -42,5 +65,9 @@ int main()
 {
 	std::cout << "----Default Animals----" << std::endl;
 	defaultAnimals();
+	std::cout << "\n---------Ideas---------" << std::endl;
+	ideas();
+	std::cout << "\n-------Leak Test-------" << std::endl;
+	leakTest();
 	return 0;
 }
