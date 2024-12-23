@@ -1,4 +1,0 @@
-./harlFilter DEBUG
-./harlFilter INFO
-./harlFilter Warning
-./harlFilter error
