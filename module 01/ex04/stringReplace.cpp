@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:46:07 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/18 15:59:39 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/23 14:26:51 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,37 @@ std::string stringReplace(const std::string str, const std::string s1, const std
 		pos += s2Len;
 	}
 	return out;
+}
+
+
+int	main(int ac, char **av) {
+	std::ofstream	outfile;
+	std::ifstream	infile;
+	std::string	buff;
+	std::string	toReplace = "";
+	std::string	path;
+
+	if (ac != 4) {
+		std::cout << "Invalid Arguments" << std::endl;
+		return 1;
+	}
+	path = av[1];
+	infile.open(path.c_str(), std::ios::in);
+	if (!infile) {
+		std::cout << "Error Opening Infile" << std::endl;
+		return 2;
+	}
+	outfile.open(path.append(".replace").c_str(), std::ios::out);
+	if (!outfile) {
+		std::cout << "Error Opening Outfile" << std::endl;
+		return 3;
+	}
+	while (getline(infile, buff))
+		toReplace.append(buff).append("\n");
+	std::string tmp = av[1];
+	tmp.append(".replace");
+	outfile << stringReplace(toReplace, av[2], av[3]);
+	
+	infile.close();
+	outfile.close();
 }

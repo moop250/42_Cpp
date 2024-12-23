@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2024/10/23 14:45:41 by hlibine          ###   ########.fr        #
+#    Updated: 2024/12/23 14:27:00 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ RESET		= \033[0m
 RESETNL		= \033[0m\n
 
 # Files
-CPP 		= main
+CPP 		=
 SUPP		= stringReplace
 FILES		= $(CPP) $(SUPP)
 

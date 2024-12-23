@@ -6,12 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:12:07 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/18 15:55:25 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/23 14:25:01 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-#include <iostream>
 
 HumanA::HumanA(std::string name, Weapon& weapon)
 		: name_(name), weapon_(weapon) {

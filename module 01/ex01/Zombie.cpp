@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:42:07 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/18 14:02:16 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/23 14:11:47 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ Zombie::Zombie(void) : name_("Default"), id_(0) {
 
 Zombie::~Zombie(void) {
 	std::cout << this->name_ << " [" << this->id_ << "] destroyed" << std::endl;
-	return ;
 }
 
 void	Zombie::announce(void) {
 	std::cout << this->name_ << " [" << this->id_
 		<< "] : BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
 }
 
 void	Zombie::setInfo(std::string &str, size_t i) {

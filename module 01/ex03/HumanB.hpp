@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:12:10 by hlibine           #+#    #+#             */
-/*   Updated: 2024/09/12 21:46:06 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2024/12/23 14:22:09 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Weapon.hpp"
 #include <iostream>
+#include <string>
 
 class HumanB {
 private:

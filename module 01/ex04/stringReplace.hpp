@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:46:09 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/18 16:00:33 by hlibine          ###   ########.fr       */
+/*   Updated: 2024/12/23 14:26:31 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,5 @@
 #include <iostream>
 #include <ostream>
 #include <string>
-
-std::string stringReplace(std::string str, std::string s1, std::string s2);
 
 #endif // !REPLACESTRING_H
