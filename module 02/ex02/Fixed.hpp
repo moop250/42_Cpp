@@ -6,9 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:59:33 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/20 14:57:58 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/07 13:32:08 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_CLASS_HPP
+# define FIXED_CLASS_HPP
 
 #include <iostream>
 #include <math.h>
@@ -54,3 +57,5 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+
+#endif // FIXED_HPP

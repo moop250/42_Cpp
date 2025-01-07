@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:59:36 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/20 15:10:50 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/07 13:47:51 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int main( void ) {
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << Fixed::min( a, b ) << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << std::endl;
+	std::cout << Fixed::min( a, b ) << std::endl;
 	std::cout << a + b << std::endl;
 	std::cout << a * 3 << std::endl;
 	std::cout << b / 2 << std::endl;

@@ -6,9 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:59:33 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/08 16:57:23 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/07 13:27:37 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_CLASS_HPP
+# define FIXED_CLASS_HPP
 
 #include <iostream>
 
@@ -26,3 +29,5 @@ public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 };
+
+#endif // FIXED_HPP
