@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:44:46 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/26 15:18:49 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/03 15:31:26 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ ScavTrap::~ScavTrap(void)
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->hp_ > 0 && energyPoints_ > 0)
-		std::cout << "ScavTrap " << this->name_ << " bashes " << target << std::endl;
+		std::cout << "ScavTrap " << this->name_ << " bashes " << " dealing " << this->attackDamage_ << " damage" << std::endl;
 	else if (this->hp_ <= 0)
 		std::cout << "ScavTrap " << this->name_ << " is dead, and cannot attack" << std::endl;
 	else
