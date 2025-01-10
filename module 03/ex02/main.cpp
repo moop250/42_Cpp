@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:41:05 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/26 15:23:29 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:35:41 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 	FragTrap bob("Bob");
 
 	jeff.guardGate();
+	jeff.guardGate();
 	john.attack("Jeff");
 	jeff.takeDamage(7);
 	jeff.beRepaired(4);
@@ -28,17 +29,8 @@ int	main(void)
 	jeff.attack("John");
 	john.beRepaired(5);
 	john.attack("Jeff");
-	jeff.takeDamage(3);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
+	for (int i = 0; i < 7; i++)
+		john.beRepaired(1);
 	john.attack("Jeff");
 	jeff.guardGate();
 	bob.highFiveGuys();

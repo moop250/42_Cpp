@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:41:05 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/22 16:18:05 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:19:49 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,8 @@ int	main(void)
 	john.beRepaired(5);
 	john.attack("Jeff");
 	jeff.takeDamage(3);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
+	for (int i = 0; i < 7; i++)
+		john.beRepaired(1);
 	john.attack("Jeff");
 
 	return 0;

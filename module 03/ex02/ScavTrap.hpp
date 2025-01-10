@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:44:44 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/26 14:59:21 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:29:51 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-
+		bool isGuarding_;
 	public:
 	// Constructors and Destructors
 		ScavTrap(std::string name);

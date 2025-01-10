@@ -6,12 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:41:21 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/03 15:30:10 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/10 14:53:42 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 // Constructors and destructors
 
@@ -55,7 +54,10 @@ ClapTrap::~ClapTrap(void)
 void ClapTrap::attack(const std::string &target)
 {
 	if (this->hp_ > 0 && energyPoints_ > 0)
+	{
 		std::cout << this->name_ << " attacks " << target << " causing " << this->attackDamage_ << " damage" << std::endl;
+		--this->energyPoints_;
+	}
 	else if (this->hp_ <= 0)
 		std::cout << this->name_ << " is dead, and cannot attack" << std::endl;
 	else

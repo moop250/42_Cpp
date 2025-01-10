@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:41:05 by hlibine           #+#    #+#             */
-/*   Updated: 2024/11/26 14:05:13 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:28:39 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 	ClapTrap john("John");
 
 	jeff.guardGate();
+	jeff.guardGate();
 	john.attack("Jeff");
 	jeff.takeDamage(7);
 	jeff.beRepaired(4);
@@ -28,16 +29,8 @@ int	main(void)
 	john.beRepaired(5);
 	john.attack("Jeff");
 	jeff.takeDamage(3);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
-	john.beRepaired(1);
+	for (int i = 0; i < 7; i++)
+		john.beRepaired(1);
 	john.attack("Jeff");
 	jeff.guardGate();
 
