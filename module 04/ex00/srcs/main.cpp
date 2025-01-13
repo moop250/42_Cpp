@@ -6,12 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:32 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/13 17:26:32 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/13 18:28:01 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+	#include <iostream>
 	#include "../incl/Dog.hpp"
-	#include <cstdio>
 	#include "../incl/Cat.hpp"
 	#include "../incl/WrongCat.hpp"
 
