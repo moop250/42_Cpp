@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:50:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/14 15:51:55 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:07:45 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public abAnimal
+class Dog : public Animal
 {
 	private:
-	Brain *brain_;
+		Brain *brain_;
 
 	public:
 	// Constructors and Destructors

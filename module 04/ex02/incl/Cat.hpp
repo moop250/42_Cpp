@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:17:04 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/14 15:51:52 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:07:30 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public abAnimal
+class Cat : public Animal
 {
 	private:
 		Brain *brain_;

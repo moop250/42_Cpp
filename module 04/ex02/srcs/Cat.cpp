@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:29:21 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/14 15:49:53 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:10:39 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(void)
 	}
 }
 
-Cat::Cat(const Cat &src) : abAnimal(src)
+Cat::Cat(const Cat &src) : Animal(src)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	this->type_ = src.type_;

@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:52:00 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/14 15:50:12 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:10:41 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::Dog(void)
 	}
 }
 
-Dog::Dog(const Dog &src) : abAnimal(src)
+Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	this->type_ = src.type_;
