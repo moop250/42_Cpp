@@ -6,18 +6,18 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:27:20 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 16:40:40 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:49:24 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Brain.hpp"
 
 
-Brain::Brain()
+Brain::Brain(void)
 {
 	std::cout << "Brain Default constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas_[i] = "Empty";
+		this->ideas_[i] = "";
 }
 
 Brain::Brain(const Brain &src)
@@ -41,11 +41,4 @@ Brain& Brain::operator=(const Brain &src)
 Brain::~Brain(void)
 {
 	std::cout << "Brain destructor called" << std::endl;
-}
-
-std::string Brain::getIdea(int index) const
-{
-	if (index < 0 || index >= 100)
-		return "Index out of range";
-	return this->ideas_[index];
 }

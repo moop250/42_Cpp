@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:17:04 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/21 16:06:53 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:51:52 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Cat : public abAnimal
 		~Cat(void);
 	// Class Functions
 		void	makeSound(void) const;
-		void	printIdeas(void) const;
 };
 
 #endif

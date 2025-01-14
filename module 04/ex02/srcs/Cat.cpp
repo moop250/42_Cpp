@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:29:21 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/21 16:15:19 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:49:53 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,28 @@
 
 /*  Contstructors and Destructors  */
 
-Cat::Cat()
+Cat::Cat(void)
 {
-	this->type_ = "Cat";
-	this->brain_ = new Brain();
 	std::cout << "Cat Default constructor called" << std::endl;
+	this->type_ = "Cat";
+	try {
+		this->brain_ = new Brain();
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+	}
 }
 
 Cat::Cat(const Cat &src) : abAnimal(src)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	this->type_ = src.type_;
-	this->brain_ = new Brain(*src.brain_);
+	try {
+		this->brain_ = new Brain(*src.brain_);
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+	}
 }
 
 Cat& Cat::operator=(const Cat& src)
@@ -34,15 +44,20 @@ Cat& Cat::operator=(const Cat& src)
 	if (this != &src) {
 		this->type_ = src.type_;
 		delete this->brain_;
-		this->brain_ = new Brain(*src.brain_);
+		try {
+			this->brain_ = new Brain(*src.brain_);
+		}
+		catch (std::bad_alloc &e) {
+			std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+		}
 	}
 	return *this;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << "Cat destructor called" << std::endl;
 	delete this->brain_;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
 /*  Class Functions  */
@@ -50,11 +65,4 @@ Cat::~Cat(void)
 void Cat::makeSound(void) const
 {
 	std::cout << "Meow Meow" << std::endl;
-}
-
-void Cat::printIdeas(void) const
-{
-	std::cout << this->type_ << "'s ideas:" << std::endl;
-	for (int i = 0; i < 100; i++)
-		std::cout << this->brain_->getIdea(i) << std::endl;
 }

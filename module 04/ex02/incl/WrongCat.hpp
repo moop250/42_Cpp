@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 15:50:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/14 15:51:55 by hlibine          ###   ########.fr       */
+/*   Created: 2024/12/13 16:36:41 by hlibine           #+#    #+#             */
+/*   Updated: 2024/12/19 16:00:26 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_CLASS_HPP
-# define DOG_CLASS_HPP
+#ifndef WRONGCAT_CLASS_HPP
+# define WRONGCAT_CLASS_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public abAnimal
+class WrongCat : public WrongAnimal
 {
 	private:
-	Brain *brain_;
 
 	public:
 	// Constructors and Destructors
-		Dog(void);
-		Dog(const Dog &src);
-		Dog& operator=(const Dog&);
-		~Dog(void);
+		WrongCat(void);
+		WrongCat(const WrongCat &src);
+		WrongCat& operator=(const WrongCat&);
+		~WrongCat(void);
 	// Class Functions
 		void	makeSound(void) const;
 };
