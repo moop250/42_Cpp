@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:36:44 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 15:59:41 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:52:55 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class WrongAnimal
 		virtual ~WrongAnimal(void);
 	// Class Functions
 		std::string getType(void) const;
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:29:21 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/13 16:29:37 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:41:29 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*  Contstructors and Destructors  */
 
-Cat::Cat()
+Cat::Cat(void)
 {
 	this->type_ = "Cat";
 	std::cout << "Cat Default constructor called" << std::endl;

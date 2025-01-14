@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:29 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 16:02:33 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:41:48 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*   Constructors and Destructors   */
 
-Animal::Animal()
+Animal::Animal(void)
 {
 	this->type_ = "Boring Animal";
 	std::cout << "Default Animal constructor called" << std::endl;

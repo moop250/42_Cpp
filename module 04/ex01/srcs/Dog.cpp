@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:52:00 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 16:54:16 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:41:25 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,28 @@
 
 /*  Contstructors and Destructors  */
 
-Dog::Dog()
+Dog::Dog(void)
 {
-	this->type_ = "Dog";
-	this->brain_ = new Brain;
 	std::cout << "Dog Default constructor called" << std::endl;
+	this->type_ = "Dog";
+		try {
+		this->brain_ = new Brain();
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+	}
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	this->type_ = src.type_;
-	this->brain_ = new Brain(*src.brain_);
+	try {
+		this->brain_ = new Brain(*src.brain_);
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+	}
 }
 
 Dog& Dog::operator=(const Dog& src)
@@ -34,15 +44,20 @@ Dog& Dog::operator=(const Dog& src)
 	if (this != &src) {
 		this->type_ = src.type_;
 		delete this->brain_;
-		this->brain_ = new Brain(*src.brain_);
+		try {
+			this->brain_ = new Brain(*src.brain_);
+		}
+		catch (std::bad_alloc &e) {
+			std::cerr << "Memory Allocation for brain failed : " << e.what() << std::endl;
+		}
 	}
 	return *this;
 }
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog destructor called" << std::endl;
 	delete this->brain_;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
 /*  Class Functions  */
@@ -50,11 +65,4 @@ Dog::~Dog(void)
 void Dog::makeSound(void) const
 {
 	std::cout << "Le Bark" << std::endl;
-}
-
-void Dog::printIdeas(void) const
-{
-	std::cout << this->type_ << "'s ideas:" << std::endl;
-	for (int i = 0; i < 100; i++)
-		std::cout << this->brain_->getIdea(i) << std::endl;
 }

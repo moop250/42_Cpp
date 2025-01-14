@@ -6,58 +6,74 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:11:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/13 18:26:18 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:39:48 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-	#include <iostream>
 	#include "../incl/Dog.hpp"
 	#include "../incl/Cat.hpp"
 	#include "../incl/WrongCat.hpp"
 
 void defaultAnimals()
 {
-	Animal a;
-	Dog b;
-	Cat c;
-	WrongCat d;
+	const Animal *a = new Animal();
+	const Animal *b = new Dog();
+	const Animal *c = new Cat();
 	
 	std::cout << std::endl;
-	std::cout << a.getType() << " " << std::endl;
-	std::cout << b.getType() << " " << std::endl;
-	std::cout << c.getType() << " " << std::endl;
-	std::cout << d.getType() << " " << std::endl;
+	std::cout << "a is a " << a->getType() << " " << std::endl;
+	std::cout << "b is a " << b->getType() << " " << std::endl;
+	std::cout << "c is a " << c->getType() << " " << std::endl;
 	std::cout << std::endl;
-	a.makeSound();
-	b.makeSound();
-	c.makeSound();
-	d.makeSound();
+	a->makeSound();
+	b->makeSound();
+	c->makeSound();
 	std::cout << std::endl;
+
+	delete a;
+	delete b;
+	delete c;
 }
 
-void ideas()
+/* void wrongAnimals()
 {
-	Dog a;
-	Dog b;
-	Cat c;
-	Cat d;
+	const WrongAnimal *a = new WrongAnimal();
+	const WrongAnimal *b = new WrongCat();
+	const WrongCat *c = new WrongCat();
+	
+	std::cout << std::endl;
+	std::cout << "a is a " << a->getType() << " " << std::endl;
+	std::cout << "b is a " << b->getType() << " " << std::endl;
+	std::cout << "c is a " << c->getType() << " " << std::endl;
+	std::cout << std::endl;
+	a->makeSound();
+	b->makeSound();
+	c->makeSound();
+	std::cout << std::endl;
+
+	delete a;
+	delete b;
+	delete c;
+} */
+
+void leaks()
+{
+	const Animal *a = new Dog();
+	const Animal *b = new Cat();
 
 	std::cout << std::endl;
-	std::cout << "Ideas" << std::endl;
-	a.printIdeas();
-	b.printIdeas();
-	c.printIdeas();
-	d.printIdeas();
-	std::cout << std::endl;
-}
 
-void leakTest()
-{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << std::endl;
-	delete j;
-	delete i;
+	delete a;
+	delete b;
+
+	std::cout << std::endl << "-----Deep Copy Test-----" << std::endl;
+	Dog basic;
+
+	{
+		std::cout << std::endl;
+		Dog tmp = basic;
+		std::cout << std::endl;
+	}
 	std::cout << std::endl;
 }
 
@@ -65,9 +81,11 @@ int main()
 {
 	std::cout << "----Default Animals----" << std::endl;
 	defaultAnimals();
-	std::cout << "\n---------Ideas---------" << std::endl;
-	ideas();
-	std::cout << "\n-------Leak Test-------" << std::endl;
-	leakTest();
+	std::cout << std::endl;
+/* 	std::cout << "-----Wrong Animals-----" << std::endl;
+	wrongAnimals(); */
+	std::cout << std::endl;
+	std::cout << "-------Leak Test-------" << std::endl;
+	leaks();
 	return 0;
 }

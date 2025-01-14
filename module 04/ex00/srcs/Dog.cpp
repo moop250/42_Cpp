@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:52:00 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/13 16:29:56 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:41:34 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*  Contstructors and Destructors  */
 
-Dog::Dog()
+Dog::Dog(void)
 {
 	this->type_ = "Dog";
 	std::cout << "Dog Default constructor called" << std::endl;

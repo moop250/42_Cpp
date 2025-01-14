@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:16:48 by hlibine           #+#    #+#             */
-/*   Updated: 2024/12/19 16:27:10 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:17:11 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class Brain {
 		Brain();
 		Brain(const Brain &src);
 		Brain &operator=(const Brain &src);
-		virtual ~Brain(void);
-		std::string getIdea(int index) const;
+		~Brain(void);
 };
 
 #endif
