@@ -6,28 +6,17 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 15:46:03 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 17:29:48 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
+#include "../incl/Form.hpp"
 
 void baseTests(void) {
 	try {
-		Bureaucrat jeff = Bureaucrat("jeff", 50);
-		Bureaucrat nep = Bureaucrat("nep", 1);
-		Bureaucrat ero = Bureaucrat("ero", 150);
-		
-		std::cout << jeff.getName() << " has a grade of " << jeff.getGrade() << std::endl;
-		std::cout << nep.getName() << " has a grade of " << nep.getGrade() << std::endl;
-		std::cout << ero.getName() << " has a grade of " << ero.getGrade() << std::endl;
-
-		std::cout << std::endl;
-
-		jeff.incrementGrade(10);
-		std::cout << jeff.getName() << " has a grade of " << jeff.getGrade() << std::endl;
-		nep.decrementGrade(10);
-		std::cout << nep.getName() << " has a grade of " << nep.getGrade() << std::endl;
+		Bureaucrat	jeff = Bureaucrat("jeff", 50);
+		Form		a113 = Form("A113", 100, 50);
 	}
 	catch (const std::exception& e) {
 		std::cerr << "Error: Grade to set " << e.what();
