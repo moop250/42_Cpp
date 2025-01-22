@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:40 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 17:37:59 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 19:20:42 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ class Bureaucrat {
 	class GradeTooHighExecption : public std::exception {
 		public:
 			virtual const char *what() const throw() {
-				return ("is to high!\n");
+				return ("Bureaucrat grade is to high!");
 			}
 	};
 	class GradeTooLowException : public std::exception {
 		public:
 			virtual const char *what() const throw() {
-				return ("is too low!\n");
+				return ("Bureaucrat grade is too low!");
 			}
 	};
 };

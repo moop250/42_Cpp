@@ -6,89 +6,97 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 17:29:48 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 19:19:02 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
 #include "../incl/Form.hpp"
+#include <exception>
 
 void baseTests(void) {
 	try {
 		Bureaucrat	jeff = Bureaucrat("jeff", 50);
 		Form		a113 = Form("A113", 100, 50);
+	
+		std::cout << a113 << std::endl;
+		a113.beSigned(jeff);
+		std::cout << a113 << std::endl;
+		a113.beSigned(jeff);
 	}
 	catch (const std::exception& e) {
-		std::cerr << "Error: Grade to set " << e.what();
+		std::cerr << e.what() << std::endl;
 	}
 }
 
 void tooHigh(void) {
 	try {
-		Bureaucrat jeff = Bureaucrat("jeff", 50);
-		Bureaucrat nep = Bureaucrat("nep", 0);
-		Bureaucrat ero = Bureaucrat("ero", 150);
-		
-		std::cout << jeff.getName() << " has a grade of " << jeff.getGrade() << std::endl;
-		std::cout << nep.getName() << " has a grade of " << nep.getGrade() << std::endl;
-		std::cout << ero.getName() << " has a grade of " << ero.getGrade() << std::endl;
-	}
-	catch (const std::exception& e) {
-		std::cerr << "Error: Grade to set " << e.what();
-	}
-	std::cout << "\n-- Too High increment --" << std::endl;
-	try {
-		Bureaucrat pluto = Bureaucrat("pluto", 3);
+		Bureaucrat	nep = Bureaucrat("nep", 1);
+		Form		prom = Form("promote eployee", 0, 1);
 
-		std::cout << pluto.getName() << " has a grade of " << pluto.getGrade() << std::endl;
-		pluto.incrementGrade(1);
-		std::cout << pluto.getName() << " has a grade of " << pluto.getGrade() << std::endl;
-		pluto.incrementGrade(1);
-		std::cout << pluto.getName() << " has a grade of " << pluto.getGrade() << std::endl;
-		pluto.incrementGrade(1);
-		std::cout << pluto.getName() << " has a grade of " << pluto.getGrade() << std::endl;
+		prom.beSigned(nep);
 	}
 	catch (const std::exception& e) {
-		
-		std::cerr << "Error: Grade to set " << e.what();
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "-- Too High Exec --" << std::endl;
+	try {
+		Bureaucrat	ero = Bureaucrat("ero", 1);
+		Form		dem = Form("demote employee", 1, 0);
+
+		ero.signForm(dem);
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
 }
 
 void tooLow() {
 	try {
-		Bureaucrat jeff = Bureaucrat("jeff", 50);
-		Bureaucrat nep = Bureaucrat("nep", 1);
-		Bureaucrat ero = Bureaucrat("ero", 151);
-		
-		std::cout << jeff.getName() << " has a grade of " << jeff.getGrade() << std::endl;
-		std::cout << nep.getName() << " has a grade of " << nep.getGrade() << std::endl;
-		std::cout << ero.getName() << " has a grade of " << ero.getGrade() << std::endl;
-	}
-	catch (const std::exception& e) {
-		std::cerr << "Error: Grade to set " << e.what();
-	}
-	std::cout << "\n-- Too Low decrement --" << std::endl;
-	try {
-		Bureaucrat mars = Bureaucrat("pluto", 148);
+		Bureaucrat	jerry = Bureaucrat("jerry", 100);
+		Form		pardon = Form("pardon", 151, 100);
 
-		std::cout <<  mars.getName() << " has a grade of " << mars.getGrade() << std::endl;
-		mars.decrementGrade(1);
-		std::cout <<  mars.getName() << " has a grade of " << mars.getGrade() << std::endl;
-		mars.decrementGrade(1);
-		std::cout <<  mars.getName() << " has a grade of " << mars.getGrade() << std::endl;
-		mars.decrementGrade(1);
-		std::cout <<  mars.getName() << " has a grade of " << mars.getGrade() << std::endl;
+		pardon.beSigned(jerry);
 	}
 	catch (const std::exception& e) {
-		
-		std::cerr << "Error: Grade to set " << e.what();
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "-- Too Low Exec --" << std::endl;
+	try {
+		Bureaucrat	james = Bureaucrat("james", 100);
+		Form		obt = Form("obtain tree", 100, 151);
+
+		james.signForm(obt);
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "-- Too Low Bureaucrat --" << std::endl;
+	try {
+		Bureaucrat	mars = Bureaucrat("mars", 150);
+		Form		order = Form("Order", 100, 50);
+
+		mars.signForm(order);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "-- Too Low Bureaucrat 2 --" << std::endl;
+	try {
+		Bureaucrat	mars = Bureaucrat("mars", 150);
+		Form		order = Form("Order", 100, 50);
+
+		order.beSigned(mars);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
 }
 
 int main (void) {
 	std::cout << "---- Base Tests ----" << std::endl;
 	baseTests();
-	std::cout << "----- Too High -----" << std::endl;
+	std::cout << "-- Too High Sign --" << std::endl;
 	tooHigh();
 	std::cout << "----- Too Low  -----" << std::endl;
 	tooLow();

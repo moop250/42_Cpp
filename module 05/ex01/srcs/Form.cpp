@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 17:36:08 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 19:20:24 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,16 @@ void		Form::setSigned(bool var) {
 /*  Member Functions */
 
 void	Form::beSigned(Bureaucrat &signer) {
-	if(signer.getGrade() < this->sign_level_) {
-		throw Form::GradeTooLowException();
+	if(signer.getGrade() > this->sign_level_) {
+		std::cout << signer.getName() << " couldn't sign \"" << this->name_ << "\" because they are too low of a grade!" << std::endl;
+		throw Bureaucrat::GradeTooLowException();
 	}
-	else {
+	else if (!this->is_signed_) {
 		std::cout << signer.getName() << " has signed form " << this->name_ << std::endl;
 		this->is_signed_ = true;
+	}
+	else {
+		std::cout << "This form has already been signed" << std::endl;
 	}
 }
 
@@ -86,7 +90,7 @@ void	Form::beSigned(Bureaucrat &signer) {
 
 std::ostream &operator<<(std::ostream &fd, const Form &src) {
 	fd << std::endl;
-	fd << "----------------------------------------" << std::endl;
+	fd << "------------------------------" << std::endl;
 	fd << "  [Form] \"" << src.getName() <<  "\"" << std::endl;
 	fd << std::endl;
 	if (src.getSigned())
@@ -97,6 +101,6 @@ std::ostream &operator<<(std::ostream &fd, const Form &src) {
 	fd << "  Signing Grade:    [" << src.getSignLevel() << "]" << std::endl;
 	fd << "  Execution Grade:  [" << src.getExecuteLevel() << "]" << std::endl;
 	fd << std::endl;
-	fd << "----------------------------------------" << std::endl;
+	fd << "------------------------------" << std::endl;
 	return (fd);
 }

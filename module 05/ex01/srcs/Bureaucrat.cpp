@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 17:45:14 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 19:20:16 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ std::string Bureaucrat::getName(void) const {
 }
 
 void Bureaucrat::incrementGrade(int i) {
-	if ((this->grade_ - i) < 1)
+	if ((this->grade_ - i) < 1) {
+		std::cout << "Error: " << this->name_ << "'s ";
 		throw Bureaucrat::GradeTooHighExecption();
-	else {
+	} else {
 		this->grade_ -= i;
 		std::cout << this->name_ << "was promoted to grade " << this->grade_ << std::endl;
 	}
@@ -60,6 +61,7 @@ void Bureaucrat::incrementGrade(int i) {
 
 void Bureaucrat::decrementGrade(int i) {
 	if ((this->grade_ + i) > 150) {
+		std::cout << "Error: " << this->name_ << "'s ";
 		throw Bureaucrat::GradeTooLowException();
 	} else {
 		this->grade_ += i;
@@ -69,7 +71,7 @@ void Bureaucrat::decrementGrade(int i) {
 
 void Bureaucrat::signForm(Form &toSign) const {
 	if (toSign.getSignLevel() < this->getGrade()) {
-		std::cout << this->name_ << " couldnt sighn form " << toSign.getName() << " because their grade ";
+		std::cout << this->name_ << " couldnt sign \"" << toSign.getName() << "\" because their grade is too low" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
 	} else {
 		toSign.setSigned(true);
