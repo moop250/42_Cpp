@@ -6,12 +6,12 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2025/01/20 16:26:14 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2025/01/22 14:31:34 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 # Genral values
-NAME		= Animals
+NAME		= Bureaucarcy
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
