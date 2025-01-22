@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/20 18:21:58 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/22 15:06:54 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void Bureaucrat::incrementGrade(int i) {
 }
 
 void Bureaucrat::decrementGrade(int i) {
-	if ((this->grade_ + i) > 250)
+	if ((this->grade_ + i) > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->grade_ += i;
 }
