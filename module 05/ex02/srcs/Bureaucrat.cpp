@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 15:51:26 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 16:57:24 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Bureaucrat::signForm(AForm &toSign) const {
 }
 
 void Bureaucrat::executeForm(AForm &toExecute) const {
-	if (!toExecute.getSignLevel()) {
+	if (!toExecute.getSigned()) {
 		std::cerr << this->name_ << " cannot execute form \"" << toExecute.getName() << " as it has not been signed" << std::endl;
 		return ;
 	}

@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2025/01/24 16:22:01 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2025/01/27 16:45:44 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ RESETNL		= \033[0m\n
 CPP 		= main
 SUPP		= Bureaucrat \
 			  AForm \
-			  ShrubberyCreationForm 
+			  ShrubberyCreationForm \
+			  RobotomyRequestForm
 
 FILES		= $(addprefix $(SRCSDIR)/, $(CPP)) $(addprefix $(SRCSDIR)/, $(SUPP))
 

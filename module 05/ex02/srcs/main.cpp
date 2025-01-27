@@ -6,13 +6,14 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 15:43:19 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 17:00:36 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
 #include "../incl/AForm.hpp"
 #include "../incl/ShrubberyCreationForm.hpp"
+#include "../incl/RobotomyRequestForm.hpp"
 #include <exception>
 
 void shrubTests(void) {
@@ -30,29 +31,23 @@ void shrubTests(void) {
 	shrubForm.execute(neptune);
 }
 
-/*void tooHigh(void) {
-	try {
-		Bureaucrat	nep = Bureaucrat("nep", 1);
-		AForm		prom = AForm("promote eployee", 0, 1);
+void robotomyTests(void) {
+	Bureaucrat	jupiter = Bureaucrat("Jupiter", 70);
+	Bureaucrat	pluto = Bureaucrat("Pluto", 40);
+	RobotomyRequestForm	robotomite = RobotomyRequestForm("Alexi");
 
-		prom.beSigned(nep);
-	}
-	catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "-- Too High Exec --" << std::endl;
-	try {
-		Bureaucrat	ero = Bureaucrat("ero", 1);
-		AForm		dem = AForm("demote employee", 1, 0);
-
-		ero.signAForm(dem);
-	}
-	catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << robotomite << std::endl;
+	jupiter.executeForm(robotomite);
+	std::cout << robotomite << std::endl;
+	pluto.executeForm(robotomite);
+	std::cout << robotomite << std::endl;
+	robotomite.beSigned(jupiter);
+	std::cout << robotomite << std::endl;
+	robotomite.execute(pluto);
+	std::cout << robotomite << std::endl;
 }
 
-void tooLow() {
+/*void tooLow() {
 	try {
 		Bureaucrat	jerry = Bureaucrat("jerry", 100);
 		AForm		pardon = AForm("pardon", 151, 100);
@@ -97,9 +92,9 @@ void tooLow() {
 int main (void) {
 	std::cout << "---- Base Tests ----" << std::endl;
 	shrubTests();
-/*	std::cout << "-- Too High Sign --" << std::endl;
-	tooHigh();
-	std::cout << "----- Too Low  -----" << std::endl;
+	std::cout << "-- Robotomy Tests --" << std::endl;
+	robotomyTests();
+/*	std::cout << "----- Too Low  -----" << std::endl;
 	tooLow();*/
 	return 0;
 }
