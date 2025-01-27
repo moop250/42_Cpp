@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/24 16:15:50 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:43:19 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ void shrubTests(void) {
 
 	std::cout << shrubForm << std::endl;
 	venus.signForm(shrubForm);
+	std::cout << shrubForm << std::endl;
 	shrubForm.execute(venus);
 	std::cout << shrubForm << std::endl;
 	neptune.executeForm(shrubForm);
 	std::cout << shrubForm << std::endl;
+	shrubForm.execute(neptune);
 }
 
-void tooHigh(void) {
+/*void tooHigh(void) {
 	try {
 		Bureaucrat	nep = Bureaucrat("nep", 1);
 		AForm		prom = AForm("promote eployee", 0, 1);
@@ -91,13 +93,13 @@ void tooLow() {
 		std::cerr << e.what() << std::endl;
 	}
 }
-
+*/
 int main (void) {
 	std::cout << "---- Base Tests ----" << std::endl;
-	baseTests();
-	std::cout << "-- Too High Sign --" << std::endl;
+	shrubTests();
+/*	std::cout << "-- Too High Sign --" << std::endl;
 	tooHigh();
 	std::cout << "----- Too Low  -----" << std::endl;
-	tooLow();
+	tooLow();*/
 	return 0;
 }

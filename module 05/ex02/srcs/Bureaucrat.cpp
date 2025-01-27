@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/24 15:33:00 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:51:26 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,29 @@ void Bureaucrat::signForm(AForm &toSign) const {
 	if (toSign.getSignLevel() < this->getGrade()) {
 		std::cout << this->name_ << " couldnt sign \"" << toSign.getName() << "\" because their grade is too low" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
-	} else {
+	}
+	else {
+		std::cout << "Executed :" << toSign.getExectued() << std::endl;
 		toSign.setSigned(true);
+		std::cout << "Executed :" << toSign.getExectued() << std::endl;
 		std::cout << "Form " << toSign.getName() << " was signed by " << this->name_ << std::endl;
 	}
+}
+
+void Bureaucrat::executeForm(AForm &toExecute) const {
+	if (!toExecute.getSignLevel()) {
+		std::cerr << this->name_ << " cannot execute form \"" << toExecute.getName() << " as it has not been signed" << std::endl;
+		return ;
+	}
+	else if (this->grade_ > toExecute.getExecuteLevel()) {
+		std::cerr << this->name_ << " does not have a high enough grade to execute form " << toExecute.getName() << std::endl;
+		return ;
+	}
+	else if (toExecute.getExectued()) {
+		std::cerr << this->name_ << " cannot execute \"" << toExecute.getName() << " as it has already been executed " << std::endl;
+		return ;
+	}
+	toExecute.setExecuted(true);
+	toExecute.beExecuted_();
+	std::cout << this->name_ << " has executed \"" << toExecute.getName() << "\"";
 }

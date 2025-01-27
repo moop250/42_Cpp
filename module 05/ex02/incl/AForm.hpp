@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/24 16:14:06 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:51:07 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class AForm {
 		bool				is_executed_;
 		const int			sign_level_;
 		const int			execute_level_;
-	protected:
-		virtual void		beExecuted_() const = 0;
 	public:
 	/*  Constructors and Destructors  */
 		AForm(void);
@@ -42,9 +40,11 @@ class AForm {
 		int			getSignLevel() const;
 		int			getExecuteLevel() const;
 		void		setSigned(bool var);
+		void		setExecuted(bool var);
 	/* Member Functions */
-		void	beSigned(Bureaucrat &signer);
-		void	execute(Bureaucrat const &executor);
+		void			beSigned(Bureaucrat &signer);
+		void			execute(Bureaucrat const &executor);
+		virtual void	beExecuted_() const = 0;
 
 	/*  Exception Definitions  */
 	class GradeTooHighException : public std::exception {

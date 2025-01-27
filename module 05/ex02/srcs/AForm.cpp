@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/24 16:14:15 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:54:27 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ AForm::AForm(const AForm &src) :
 	name_(src.name_), sign_level_(src.sign_level_), execute_level_(src.execute_level_)
 {
 	this->is_signed_ = src.is_signed_;
+	this->is_executed_ = src.is_executed_;
 }
 
 AForm	&AForm::operator=(const AForm &src)
 {
 	if (this != &src) {
 		this->is_signed_ = src.is_signed_;
+		this->is_executed_ = src.is_executed_;
 	}
 	return *this;
 }
@@ -59,7 +61,7 @@ bool		AForm::getSigned(void) const {
 }
 
 bool		AForm::getExectued(void) const {
-	return (this->is_signed_);
+	return (this->is_executed_);
 }
 
 int			AForm::getSignLevel(void) const {
@@ -74,11 +76,15 @@ void		AForm::setSigned(bool var) {
 	this->is_signed_ = var;
 }
 
+void		AForm::setExecuted(bool var) {
+	this->is_executed_ = var;
+}
+
 
 /*  Member Functions */
 
 void	AForm::beSigned(Bureaucrat &signer) {
-	if(signer.getGrade() > this->sign_level_) {
+	if (signer.getGrade() > this->sign_level_) {
 		std::cout << signer.getName() << " couldn't sign \"" << this->name_ << "\" because they are too low of a grade!" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
 	}
@@ -92,14 +98,19 @@ void	AForm::beSigned(Bureaucrat &signer) {
 }
 
 void	AForm::execute(Bureaucrat const & executor) {
-	if (executor.getGrade() > this->execute_level_) {
-		std::cerr << "Bureaucrat " << executor.getName() << " does not have a high enough grade to sign \"" << this->name_ << "\"" << std::endl;
+	if (!this->is_signed_) {
+		std::cerr << "\"" << this->name_ << "\" must be signed before it can be executed" << std::endl;
+		return ;
+	}
+	else if (executor.getGrade() > this->execute_level_) {
+		std::cerr << "Bureaucrat " << executor.getName() << " does not have a high enough grade to execute \"" << this->name_ << "\"" << std::endl;
 		return ;
 	}
 	else if (this->is_executed_) {
 		std::cerr << "\"" << this->name_ << "\" has already been executed" << std::endl;
 		return ;
 	}
+	std::cout << "\"" << this->name_ << "\" has been executed by " << executor.getName() << std::endl;
 	this->is_executed_ = true;
 	beExecuted_();
 }
