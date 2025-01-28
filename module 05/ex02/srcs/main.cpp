@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/28 14:16:09 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:44:08 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void shrubTests(void) {
 	Bureaucrat	venus = Bureaucrat("Venus", 130);
 	Bureaucrat	neptune = Bureaucrat("Neptune", 120);
-	ShrubberyCreationForm shrubForm = ShrubberyCreationForm("park");
+	ShrubberyCreationForm shrubForm = ShrubberyCreationForm("home");
 
 	std::cout << shrubForm << std::endl;
 	venus.signForm(shrubForm);

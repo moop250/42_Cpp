@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:40 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/23 17:50:37 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:44:41 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Bureaucrat {
 		void		incrementGrade(int i);
 		void		decrementGrade(int i);
 		void		signForm(AForm &toSign) const;
-		void		executeForm(AForm &toSign) const;
+		void		executeForm(AForm & form) const;
 
 	/*  Exception Definitions  */
 	class GradeTooHighExecption : public std::exception {
