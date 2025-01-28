@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/28 14:44:08 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:51:06 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void presidentialShit() {
 int main (void) {
 	std::cout << "---- Base Tests ----" << std::endl;
 	shrubTests();
-	std::cout << "-- Robotomy Tests --" << std::endl;
+	std::cout << "\n-- Robotomy Tests --" << std::endl;
 	robotomyTests();
 	std::cout << "-- Pardoning Time  --" << std::endl;
 	presidentialShit();
