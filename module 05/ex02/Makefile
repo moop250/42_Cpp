@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2025/01/27 16:45:44 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2025/01/28 14:07:50 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ CPP 		= main
 SUPP		= Bureaucrat \
 			  AForm \
 			  ShrubberyCreationForm \
-			  RobotomyRequestForm
+			  RobotomyRequestForm \
+			  PresidentialPardonForm
 
 FILES		= $(addprefix $(SRCSDIR)/, $(CPP)) $(addprefix $(SRCSDIR)/, $(SUPP))
 

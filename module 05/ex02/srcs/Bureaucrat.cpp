@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 16:57:24 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:13:00 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ void Bureaucrat::signForm(AForm &toSign) const {
 		throw Bureaucrat::GradeTooLowException();
 	}
 	else {
-		std::cout << "Executed :" << toSign.getExectued() << std::endl;
 		toSign.setSigned(true);
-		std::cout << "Executed :" << toSign.getExectued() << std::endl;
 		std::cout << "Form " << toSign.getName() << " was signed by " << this->name_ << std::endl;
 	}
 }
