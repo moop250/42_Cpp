@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:01:00 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:11 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/29 14:50:57 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) :
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::beExecuted_() const {
+	srand(time(0));
 	std::cout << "*Loud Drilling and Buzzing noises*" << std::endl;
 	int randomNum = rand() % 101;
 	

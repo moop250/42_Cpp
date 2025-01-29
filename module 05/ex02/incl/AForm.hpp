@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/28 14:41:51 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/29 14:38:01 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AForm {
 		AForm(std::string name, int sign_level, int execute_level);
 		AForm(const AForm &src);
 		AForm &operator=(const AForm &src);
-		~AForm(void);
+		virtual ~AForm(void);
 	/*  Getters & Setters  */
 		std::string	getName(void) const;
 		bool		getSigned() const;
