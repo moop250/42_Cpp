@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/28 14:13:00 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/29 14:52:01 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void Bureaucrat::executeForm(AForm &toExecute) const {
 		std::cerr << this->name_ << " cannot execute \"" << toExecute.getName() << " as it has already been executed " << std::endl;
 		return ;
 	}
+	std::cout << this->name_ << " has executed \"" << toExecute.getName() << "\"" << std::endl;
 	toExecute.setExecuted(true);
 	toExecute.beExecuted_();
-	std::cout << this->name_ << " has executed \"" << toExecute.getName() << "\"";
 }

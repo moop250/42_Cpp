@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:55:28 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/24 16:01:23 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 16:13:33 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class ShrubberyCreationForm : public AForm {
 
 	public:
 		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &src);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 		~ShrubberyCreationForm();
 };
 

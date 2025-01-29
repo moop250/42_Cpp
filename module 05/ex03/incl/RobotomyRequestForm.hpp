@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:00:58 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 16:39:26 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/29 14:55:43 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "AForm.hpp"
 #include <string>
+#include <iostream>
+#include <cstdlib>
 
 class RobotomyRequestForm : public AForm {
 	private:
@@ -23,6 +25,8 @@ class RobotomyRequestForm : public AForm {
 
 	public:
 		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm &src);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
 		~RobotomyRequestForm();
 };
 
