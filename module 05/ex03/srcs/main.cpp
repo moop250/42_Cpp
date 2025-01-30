@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/29 14:58:08 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 15:15:02 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void internTests(void) {
 		std::cerr << "memory allocation failure" << std::endl;
 		exit(1) ;
 	}
-	
+
+try {
 	std::cout << std::endl;
 	venus.signForm(*rrf);
 	venus.executeForm(*rrf);
@@ -45,12 +46,23 @@ void internTests(void) {
 	venus.signForm(*sc);
 	venus.executeForm(*sc);
 	std::cout << *sc << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	
 	delete rrf;
 	delete pp;
 	delete sc;
 
-	AForm	*lunch = dispo.makeForm("lunch order", "samich");
+	AForm	*lunch;
+
+	try {
+		lunch = dispo.makeForm("lunch order", "samich");
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	if (lunch != NULL)
 		delete lunch;
 }

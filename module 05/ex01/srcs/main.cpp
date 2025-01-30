@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 19:19:02 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 14:22:48 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void baseTests(void) {
 		std::cout << a113 << std::endl;
 		a113.beSigned(jeff);
 		std::cout << a113 << std::endl;
-		a113.beSigned(jeff);
+		jeff.signForm(a113);
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
@@ -39,7 +39,7 @@ void tooHigh(void) {
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "-- Too High Exec --" << std::endl;
+	std::cout << "\n-- Too High Exec --" << std::endl;
 	try {
 		Bureaucrat	ero = Bureaucrat("ero", 1);
 		Form		dem = Form("demote employee", 1, 0);
@@ -61,7 +61,7 @@ void tooLow() {
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "-- Too Low Exec --" << std::endl;
+	std::cout << "\n-- Too Low Exec --" << std::endl;
 	try {
 		Bureaucrat	james = Bureaucrat("james", 100);
 		Form		obt = Form("obtain tree", 100, 151);
@@ -71,7 +71,7 @@ void tooLow() {
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "-- Too Low Bureaucrat --" << std::endl;
+	std::cout << "\n-- Too Low Bureaucrat --" << std::endl;
 	try {
 		Bureaucrat	mars = Bureaucrat("mars", 150);
 		Form		order = Form("Order", 100, 50);
@@ -81,7 +81,7 @@ void tooLow() {
 	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "-- Too Low Bureaucrat 2 --" << std::endl;
+	std::cout << "\n-- Too Low Bureaucrat 2 --" << std::endl;
 	try {
 		Bureaucrat	mars = Bureaucrat("mars", 150);
 		Form		order = Form("Order", 100, 50);
@@ -96,9 +96,9 @@ void tooLow() {
 int main (void) {
 	std::cout << "---- Base Tests ----" << std::endl;
 	baseTests();
-	std::cout << "-- Too High Sign --" << std::endl;
+	std::cout << "\n-- Too High Sign --" << std::endl;
 	tooHigh();
-	std::cout << "----- Too Low  -----" << std::endl;
+	std::cout << "\n----- Too Low  -----" << std::endl;
 	tooLow();
 	return 0;
 }

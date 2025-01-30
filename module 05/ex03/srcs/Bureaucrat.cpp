@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/29 14:52:01 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 15:11:02 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,5 @@ void Bureaucrat::signForm(AForm &toSign) const {
 }
 
 void Bureaucrat::executeForm(AForm &toExecute) const {
-	if (!toExecute.getSigned()) {
-		std::cerr << this->name_ << " cannot execute form \"" << toExecute.getName() << " as it has not been signed" << std::endl;
-		return ;
-	}
-	else if (this->grade_ > toExecute.getExecuteLevel()) {
-		std::cerr << this->name_ << " does not have a high enough grade to execute form " << toExecute.getName() << std::endl;
-		return ;
-	}
-	else if (toExecute.getExectued()) {
-		std::cerr << this->name_ << " cannot execute \"" << toExecute.getName() << " as it has already been executed " << std::endl;
-		return ;
-	}
-	std::cout << this->name_ << " has executed \"" << toExecute.getName() << "\"" << std::endl;
-	toExecute.setExecuted(true);
-	toExecute.beExecuted_();
+	toExecute.execute(*this);
 }

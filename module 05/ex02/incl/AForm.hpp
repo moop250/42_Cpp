@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/29 14:38:01 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 14:55:02 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class AForm {
 		bool				is_executed_;
 		const int			sign_level_;
 		const int			execute_level_;
+	protected:
+		virtual void	beExecuted_() const = 0;
 	public:
 	/*  Constructors and Destructors  */
 		AForm(void);
@@ -42,9 +44,8 @@ class AForm {
 		void		setSigned(bool var);
 		void		setExecuted(bool var);
 	/* Member Functions */
-		void			beSigned(Bureaucrat &signer);
+		void			beSigned(const Bureaucrat &signer);
 		void			execute(Bureaucrat const & executor);
-		virtual void	beExecuted_() const = 0;
 
 	/*  Exception Definitions  */
 	class GradeTooHighException : public std::exception {
@@ -56,6 +57,21 @@ class AForm {
 	class GradeTooLowException : public std::exception {
 		virtual const char *what() const throw() {
 			return ("Form level is too low");
+		}
+	};
+	class FormNotSigned : public std::exception {
+		virtual const char *what() const throw() {
+			return ("Form needs to be signed before it can be executed");
+		}
+	};
+	class CantBeExecuted : public std::exception {
+		virtual const char *what() const throw() {
+			return ("This Bureaucrat does not have a sufficent grade to execute this form");
+		}
+	};
+	class FormAlreadyExecuted : public std::exception {
+		virtual const char *what() const throw() {
+			return ("This Form has already been executed");
 		}
 	};
 };

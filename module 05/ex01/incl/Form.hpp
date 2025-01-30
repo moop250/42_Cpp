@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 18:57:20 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 14:13:05 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form {
 		int			getExecuteLevel() const;
 		void		setSigned(bool var);
 	/* Member Functions */
-		void	beSigned(Bureaucrat &signer);
+		void	beSigned(const Bureaucrat &signer);
 	
 	/*  Exception Definitions  */
 	class GradeTooHighException : public std::exception {

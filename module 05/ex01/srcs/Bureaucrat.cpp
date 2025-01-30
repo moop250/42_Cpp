@@ -6,13 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 19:20:16 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 14:27:49 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
 #include "../incl/Form.hpp"
-#include <string>
 
 
 Bureaucrat::Bureaucrat(void) : name_("Standard Employee"), grade_(150) {
@@ -74,7 +73,6 @@ void Bureaucrat::signForm(Form &toSign) const {
 		std::cout << this->name_ << " couldnt sign \"" << toSign.getName() << "\" because their grade is too low" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
 	} else {
-		toSign.setSigned(true);
-		std::cout << "Form " << toSign.getName() << " was signed by " << this->name_ << std::endl;
+		toSign.beSigned(*this);
 	}
 }

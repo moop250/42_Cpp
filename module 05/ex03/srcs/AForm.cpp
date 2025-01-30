@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/27 15:54:27 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 15:11:42 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		AForm::setExecuted(bool var) {
 
 /*  Member Functions */
 
-void	AForm::beSigned(Bureaucrat &signer) {
+void	AForm::beSigned(Bureaucrat const &signer) {
 	if (signer.getGrade() > this->sign_level_) {
 		std::cout << signer.getName() << " couldn't sign \"" << this->name_ << "\" because they are too low of a grade!" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
@@ -100,21 +100,22 @@ void	AForm::beSigned(Bureaucrat &signer) {
 void	AForm::execute(Bureaucrat const & executor) {
 	if (!this->is_signed_) {
 		std::cerr << "\"" << this->name_ << "\" must be signed before it can be executed" << std::endl;
-		return ;
+		throw AForm::FormNotSigned();
 	}
 	else if (executor.getGrade() > this->execute_level_) {
 		std::cerr << "Bureaucrat " << executor.getName() << " does not have a high enough grade to execute \"" << this->name_ << "\"" << std::endl;
-		return ;
+		throw AForm::CantBeExecuted();
 	}
 	else if (this->is_executed_) {
 		std::cerr << "\"" << this->name_ << "\" has already been executed" << std::endl;
-		return ;
+		throw AForm::FormAlreadyExecuted();
 	}
-	std::cout << "\"" << this->name_ << "\" has been executed by " << executor.getName() << std::endl;
-	this->is_executed_ = true;
-	beExecuted_();
+	else {
+		std::cout << "\"" << this->name_ << "\" has been executed by " << executor.getName() << std::endl;
+		this->is_executed_ = true;
+		beExecuted_();
+	}
 }
-
 
 /*  Ostream Operator Overload  */
 

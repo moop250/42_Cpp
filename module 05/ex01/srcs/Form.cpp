@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 19:20:24 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/30 14:13:33 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		Form::setSigned(bool var) {
 
 /*  Member Functions */
 
-void	Form::beSigned(Bureaucrat &signer) {
+void	Form::beSigned(const Bureaucrat &signer) {
 	if(signer.getGrade() > this->sign_level_) {
 		std::cout << signer.getName() << " couldn't sign \"" << this->name_ << "\" because they are too low of a grade!" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
