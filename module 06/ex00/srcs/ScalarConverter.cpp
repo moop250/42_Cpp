@@ -6,13 +6,14 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:25:25 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/04 16:19:29 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/04 17:18:38 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/ScalarConverter.hpp"
 #include <climits>
 #include <cctype>
+#include <cmath>
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
@@ -48,7 +49,7 @@ void ScalarConverter::convert(const std::string src) {
 	}
 
 	std::cout << "char:\t";
-	if (nb >= 0 && nb <= 128 && !isprint(nb))
+	if (nb >= 0 && nb <= 128 && !isprint(static_cast<char>(nb)))
 		std::cerr << "Non displayable" << std::endl;
 	else if (nb < 0 || nb > 128)
 		std::cerr << "Impossible" << std::endl;
@@ -57,7 +58,7 @@ void ScalarConverter::convert(const std::string src) {
 	(void)tmp;
 
 	std::cout << "int:\t";
-	if (nb <= INT_MAX || nb >= INT_MIN) {
+	if (nb <= INT_MAX && nb >= INT_MIN) {
 		std::cout << static_cast<int>(nb) << std::endl;
 	}
 	else {
@@ -66,8 +67,15 @@ void ScalarConverter::convert(const std::string src) {
 
 	std::cout << "float:\t";
 	std::cout << nb;
-	if (trunc(nb) != nb || nb == INFINITY)
+	if (trunc(nb) != nb || nb == INFINITY || -INFINITY)
 		std::cout << "f" << std::endl;
 	else
 		std::cout  << ".0f" << std::endl;
+
+	std::cout << "double:\t";
+	std::cout << nb;
+	if (trunc(nb) == nb && nb != INFINITY && nb != -INFINITY)
+		std::cout << ".0" << std::endl;
+	else
+		std::cout << std::endl;
 }
