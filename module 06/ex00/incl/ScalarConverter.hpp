@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:25:22 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/04 13:00:05 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/05 18:36:34 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class ScalarConverter{
 	private:
 		ScalarConverter();
-		ScalarConverter(ScalarConverter  &src);
-		ScalarConverter& operator=(ScalarConverter &src);
+		ScalarConverter(const ScalarConverter  &src);
+		ScalarConverter& operator=(const ScalarConverter &src);
 		~ScalarConverter();
 
 	public:

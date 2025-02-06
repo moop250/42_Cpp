@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:25:25 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/04 17:18:38 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/05 18:36:49 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #include <string>
 
 ScalarConverter::ScalarConverter(){};
-ScalarConverter::ScalarConverter(ScalarConverter &src){(void)src;};
-ScalarConverter& ScalarConverter::operator=(ScalarConverter &src){(void)src;return *this;};
+ScalarConverter::ScalarConverter(const ScalarConverter &src){(void)src;};
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &src){(void)src;return *this;};
 ScalarConverter::~ScalarConverter(){};
 
 
