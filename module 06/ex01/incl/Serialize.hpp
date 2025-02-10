@@ -6,15 +6,16 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:56:33 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/06 14:32:59 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/10 12:54:18 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZE_CLASS_HPP
 # define SERIALIZE_CLASS_HPP
 
-#include <cstdint>
 #include <string>
+
+typedef unsigned long uintptr_t;
 
 typedef struct s_data {
 	int			i;
