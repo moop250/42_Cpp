@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/30 15:10:16 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:32:30 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class AForm {
 		bool				is_executed_;
 		const int			sign_level_;
 		const int			execute_level_;
+		AForm(void);
 	protected:
 		virtual void	beExecuted_() const = 0;
 	public:
 	/*  Constructors and Destructors  */
-		AForm(void);
 		AForm(std::string name, int sign_level, int execute_level);
 		AForm(const AForm &src);
 		AForm &operator=(const AForm &src);

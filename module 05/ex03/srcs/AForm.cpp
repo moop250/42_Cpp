@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/30 15:11:42 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:32:07 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 
 AForm::AForm(void) :
 	name_("Blank Form"), is_signed_(false), is_executed_(false), sign_level_(150), execute_level_(100)
-{
-}
+{}
 
 AForm::AForm(std::string name, int sign_level, int execute_level) :
 	name_(name), is_signed_(false), is_executed_(false), sign_level_(sign_level), execute_level_(execute_level)

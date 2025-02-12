@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:40 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/20 18:15:15 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:07:46 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Bureaucrat {
 	private:
 		const std::string	name_;
 		int					grade_;
+		Bureaucrat(void);
 
 	public:
 	/*  Constructors and Destructor  */
-		Bureaucrat(void);
 		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat &operator=(const Bureaucrat &src);
@@ -50,6 +50,6 @@ class Bureaucrat {
 	};
 };
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat const &src);
+std::ostream	&operator<<(std::ostream &o, Bureaucrat &src);
 
 #endif

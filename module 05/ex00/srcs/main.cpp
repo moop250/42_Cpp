@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:58:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 15:46:03 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:08:22 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void baseTests(void) {
 		Bureaucrat nep = Bureaucrat("nep", 1);
 		Bureaucrat ero = Bureaucrat("ero", 150);
 		
-		std::cout << jeff.getName() << " has a grade of " << jeff.getGrade() << std::endl;
-		std::cout << nep.getName() << " has a grade of " << nep.getGrade() << std::endl;
-		std::cout << ero.getName() << " has a grade of " << ero.getGrade() << std::endl;
+		std::cout << jeff;
+		std::cout << nep;
+		std::cout << ero;
 
 		std::cout << std::endl;
 
