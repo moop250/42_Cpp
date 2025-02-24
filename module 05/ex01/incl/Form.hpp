@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:32 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/30 14:13:05 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:17:34 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Form {
 		bool				is_signed_;
 		const int			sign_level_;
 		const int			execute_level_;
+		Form(void);
 	public:
 	/*  Constructors and Destructors  */
-		Form(void);
 		Form(std::string name, int sign_level, int execute_level);
 		Form(const Form &src);
 		Form &operator=(const Form &src);

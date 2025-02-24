@@ -6,16 +6,14 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/22 15:06:54 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:11:35 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
-#include <string>
 
 
-Bureaucrat::Bureaucrat(void) : name_("Standard Employee"), grade_(150) {
-}
+Bureaucrat::Bureaucrat(void) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name), grade_(grade) {
 	if (this->grade_ < 1)
@@ -58,4 +56,10 @@ void Bureaucrat::decrementGrade(int i) {
 	if ((this->grade_ + i) > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->grade_ += i;
+}
+
+/*  ostream  */
+std::ostream &operator<<(std::ostream &out, Bureaucrat &src) {
+	out << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
+	return out;
 }

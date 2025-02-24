@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:57:41 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/30 14:57:18 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:09:23 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 
 
-Bureaucrat::Bureaucrat(void) : name_("Standard Employee"), grade_(150) {
+Bureaucrat::Bureaucrat(void) {
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name), grade_(grade) {
@@ -81,4 +81,10 @@ void Bureaucrat::signForm(AForm &toSign) const {
 
 void Bureaucrat::executeForm(AForm &toExecute) const {
 	toExecute.execute(*this);
+}
+
+/*  ostream  */
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &src) {
+	out << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
+	return out;
 }

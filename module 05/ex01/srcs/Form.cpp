@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:49:30 by hlibine           #+#    #+#             */
-/*   Updated: 2025/01/30 14:13:33 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:18:36 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 /*  Constructors and Destructor  */
 
 Form::Form(void) :
-	name_("Blank Form"), is_signed_(false), sign_level_(150), execute_level_(100)
-{
-}
+name_("Blank Form"), is_signed_(false), sign_level_(150), execute_level_(100)
+{}
 
 Form::Form(std::string name, int sign_level, int execute_level) :
 	name_(name), is_signed_(false), sign_level_(sign_level), execute_level_(execute_level)
