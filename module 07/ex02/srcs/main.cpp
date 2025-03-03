@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 16:32:56 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/28 16:45:06 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/03 12:47:56 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(void) {
 				std::cerr << e.what();
 			}
 		}
+		std::cout << std::endl;
 		for (int i = 0; i < 4; i++) {
 			try {
 				int1[i] = (20);
@@ -39,6 +40,7 @@ int	main(void) {
 				std::cerr << e.what();
 			}
 		}
+		std::cout << std::endl;
 		for (int i = 0; i < 3; i++) {
 			try {
 				int2[i] = i * 2;
