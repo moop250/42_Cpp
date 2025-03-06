@@ -6,12 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:06 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/05 19:25:10 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/05 19:25:36 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Span.hpp"
-#include <ostream>
 
 int	main(void) {
 

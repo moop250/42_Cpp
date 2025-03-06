@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:05 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/05 19:19:23 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/06 16:21:51 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void Span::fillList(const unsigned int count, const int max) {
 			throw Span::OverCountException();
 		++this->_count;
 		this->_N.push_back(rand() % (max + 1));
-		std::cout << this->_N[i] << std::endl;
+		// std::cout << this->_N[i] << std::endl;
 	}
 }
 
