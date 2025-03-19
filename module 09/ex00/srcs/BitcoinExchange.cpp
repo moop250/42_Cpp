@@ -6,19 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:59:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/18 18:06:34 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/19 16:24:58 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/BitcoinExchange.hpp"
-#include <climits>
-#include <cstddef>
-#include <cstdio>
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
-#include <stdexcept>
-#include <string>
 
 BtcEx::BtcEx() {std::cerr << "you should not be able to call this" << std::endl;}
 
@@ -51,23 +43,28 @@ bool checkDate(std::string in) {
 	day = atoi(in.substr(pos2 + 1).c_str());
 
 	if (year < 1)
-		return false;
+		throw std::exception();
 	if (month < 1 || month >12)
-		return false;
+		throw std::exception();
 
 	if (isLeapYear(year))
 		daysInMonth[1] = 29;
 	if (day < 1 || day > daysInMonth[month - 1])
-		return false;
+		throw std::exception();
 
 	return true;
 }
 
+std::string rtrim(const std::string &s) {
+    size_t end = s.find_last_not_of(WHITESPACE);
+    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+
 void BtcEx::init() {
 	std::ifstream	file;
-	std::string		line, date, num;
+	std::string		line, date, num, tmp;
 	std::size_t		pos;
-	double			val;
+	float			val;
 	char*			end;
 
 	file.open(this->path_.c_str(), std::ios::in);
@@ -76,53 +73,63 @@ void BtcEx::init() {
 	while (getline(file, line)) {
 		pos = line.find(',');
 		if (pos == std::string::npos) {
-			std::cerr << "Invalid data format" << std::endl;
+			std::cerr << "Invalid data format: " << line << std::endl;
+			continue ;
+		}
+		tmp = rtrim(line);
+		if (pos == tmp.length() - 1) {
+			std::cerr << "Invalid data format: " << line << std::endl;
 			continue ;
 		}
 		try {
-			date = line.substr(0, pos - 1);
+			date = line.substr(0, pos);
 			checkDate(date);
 		}
 		catch (const std::exception &e) {
+			std::cerr << "Invalid date: " << date << std::endl;
 			(void)e;
 			continue ;
 		}
 		end = NULL;
 		num = line.substr(pos + 1);
+		std::cout << num << std::endl;
 		val = std::strtof(num.c_str(), &end);
-		if (val >= 0 && end != NULL && *end != '\0')
+		if (val >= 0 && end != NULL && *end == '\0')
 			this->data_[date] = val;
 		else
 			std::cerr << "Error: \"" << num << "\" invalid" << std::endl; 
-		std::cout << this->data_[date];
+		std::cout << this->data_[date] << std::endl;
 	}
 	file.close();
 }
 
-void printMult(std::string &date) {
-
-	// check if date is in database
-
-	// if not check for a lower date
-
-	// if no lower date, print error
-}
-
-std::string rtrim(const std::string &s) {
-    size_t end = s.find_last_not_of(WHITESPACE);
-    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+void BtcEx::printMult(const std::string &date, const float num) {
+	std::map<std::string, float>::iterator it	= this->data_.begin();
+	std::map<std::string, float>::iterator iti	= this->data_.end();
+	
+	while (it->first < date || it != iti)
+		++it;
+	if (date < this->data_.begin()->first)
+		std::cerr << "Date " << date << " is before any date in the database" << std::endl;
+	else if (it->first == date) 
+		std::cout << date << " => " << num << " = " << std::setprecision(8) << it->second * num << std::endl;
+	else {
+		--it;
+		std::cout << date << " => " << num << " = " << std::setprecision(8) << it->second * num << std::endl;
+	}
 }
 
 void BtcEx::process(std::ifstream &file) {
 	
 	std::string	line, date, closestDate;
-	size_t		pos;
-	double		num;
+	size_t		pos = -1;
+	double		num = -1;
 
 	while (getline(file, line)) {
 		pos = line.find('|');
 		if (pos  == std::string::npos) {
 			std::cerr << "Error: Bad input => " << line << std::endl;
+			 continue ;
 		}
 		if (rtrim(line)[pos + 1] == '\0') {
 			std::cerr << "Error: Bad input => " << line << std::endl;
@@ -142,6 +149,7 @@ void BtcEx::process(std::ifstream &file) {
 			std::cerr << "Error: too large a number" << std::endl;
 			continue ;
 		}
+		printMult(date, num);
 	}
 
 }

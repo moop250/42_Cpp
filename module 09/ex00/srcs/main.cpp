@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:53:06 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/14 17:18:18 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/19 15:46:27 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ int main(int ac, char **av) {
 	
 	if (ac != 2) {
 		std::cerr << "This program only accpets a single parameter, you input: " << ac - 1 << std::endl;
-		return 0;
+		return 1;
 	}
 
-	std::string	in = av[1];
 	BtcEx	btc("./data.csv");
-	std::ifstream fle;
+	std::ifstream file;
 
 	try {
 		btc.init();
@@ -35,18 +34,18 @@ int main(int ac, char **av) {
 		std::cerr << "Error: " << e.what();
 		return 2;
 	}
-	fle.open(in);
-	if (!fle.is_open()) {
-		std::cerr << "unable to open " << in << std::endl;
+	file.open(av[1]);
+	if (!file.is_open()) {
+		std::cerr << "unable to open " << av[1] << std::endl;
 		return 3;
 	}
 	try {
-		//btc.process(fle);
+		btc.process(file);
 	}
 	catch (std::exception &e) {
 		std::cerr << "Error: " << e.what();
 		return 4;
 	}
-	fle.close();
-	return 1;
+	file.close();
+	return 0;
 }

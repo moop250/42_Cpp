@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2025/03/10 14:05:15 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2025/03/19 15:25:49 by hlibine          ###   LAUSANNE.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RESETNL		= \033[0m\n
 
 # Files
 CPP 		= main
-SUPP		=
+SUPP		= BitcoinExchange
 
 FILES		= $(addprefix $(SRCSDIR)/, $(CPP)) $(addprefix $(SRCSDIR)/, $(SUPP))
 
