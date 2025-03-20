@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:58:59 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/20 17:12:06 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/20 17:25:31 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <climits>
 #include <iostream>
 #include <iomanip>
+#include <cstring>
 
 #define WHITESPACE " \n\r\t\f\v"
 #define VALID_CSV " \n\r\t\f\v0123456789-,."

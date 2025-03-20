@@ -6,13 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:59:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/20 17:19:45 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/20 17:25:26 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/BitcoinExchange.hpp"
-#include <cstring>
-#include <stdexcept>
 
 BtcEx::BtcEx() {std::cerr << "you should not be able to call this" << std::endl;}
 
@@ -91,6 +89,7 @@ void BtcEx::init() {
 	file.open(this->path_.c_str(), std::ios::in);
 	if (!file.is_open())
 		throw std::invalid_argument("Could not find / open databse file.\n");
+	getline(file, line);
 	while (getline(file, line)) {
 		try {
 			sanatize(line, 0);
@@ -120,13 +119,11 @@ void BtcEx::init() {
 		}
 		end = NULL;
 		num = line.substr(pos + 1);
-		std::cout << num << std::endl;
 		val = std::strtod(num.c_str(), &end);
 		if (val >= 0 && end != NULL && *end == '\0')
 			this->data_[date] = val;
 		else
 			std::cerr << "Error: \"" << num << "\" invalid" << std::endl; 
-		std::cout << this->data_[date] << std::endl;
 	}
 	file.close();
 }
