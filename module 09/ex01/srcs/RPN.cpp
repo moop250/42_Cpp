@@ -6,18 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:07 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/26 16:59:32 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/26 17:28:30 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/RPN.hpp"
-#include <climits>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <stack>
-#include <stdexcept>
-#include <string>
 
 size_t RPN::calculate(const std::string in) {
 	std::stack<int>	stack;
@@ -35,7 +28,6 @@ size_t RPN::calculate(const std::string in) {
 		if (j == std::string::npos)
 			j = in.length();
 		tmp = in.substr(i, j - i);
-		std::cout << tmp << std::endl;
 		for (size_t len = tmp.length(), pos = 0; pos < len; pos++) {
 			if (!strchr(NUMBERS, tmp[pos])) {
 				numbers = false;
@@ -92,6 +84,7 @@ size_t RPN::calculate(const std::string in) {
 			}
 		}
 	}
+
 	if (stack.size() == 1)
 		return stack.top();
 	else
