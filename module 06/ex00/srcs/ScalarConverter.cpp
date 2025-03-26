@@ -6,18 +6,13 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:25:25 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/05 18:36:49 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/26 18:28:14 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/ScalarConverter.hpp"
-#include <climits>
 #include <cctype>
 #include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <string>
 
 ScalarConverter::ScalarConverter(){};
 ScalarConverter::ScalarConverter(const ScalarConverter &src){(void)src;};
@@ -35,7 +30,8 @@ void ScalarConverter::convert(const std::string src) {
 	else {
 		nb = strtod(src.c_str(), &tmp);
 	}
-	if (tmp && strlen(tmp) > 1) {
+	
+	if (tmp && strlen(tmp) > 0) {
 		std::cerr << "invalid characters in input: ";
 		for (size_t i = 0; i < strlen(tmp); i++) {
 			if (tmp[i] == 46 || (tmp[i] >= 48 && tmp[i] <= 57)) {
@@ -49,12 +45,12 @@ void ScalarConverter::convert(const std::string src) {
 	}
 
 	std::cout << "char:\t";
-	if (nb >= 0 && nb <= 128 && !isprint(static_cast<char>(nb)))
-		std::cerr << "Non displayable" << std::endl;
-	else if (nb < 0 || nb > 128)
-		std::cerr << "Impossible" << std::endl;
-	else
+	if ((nb > 0 || nb < 128) && isprint(static_cast<char>(nb)))
 		std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
+	else if (!isprint(static_cast<char>(nb)) && (nb > 0 || nb < 128))
+		std::cerr << "Non displayable" << std::endl;
+	else
+		std::cerr << "Impossible" << std::endl;
 	(void)tmp;
 
 	std::cout << "int:\t";
