@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:07 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/26 17:28:30 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/03/26 17:29:42 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ size_t RPN::calculate(const std::string in) {
 		
 		if (numbers) {
 			try {
-				stack.push(std::atoi(tmp.c_str()));
+				stack.push(atoi(tmp.c_str()));
 			}
 			catch (const std::out_of_range& e) {
 				throw std::invalid_argument("Number out of range");
