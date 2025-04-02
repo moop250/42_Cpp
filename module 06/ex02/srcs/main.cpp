@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:34:49 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/07 15:38:14 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/02 14:43:37 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include <iostream>
 
 Base *generate(void) {
-	srand(time(NULL));
 	int i = rand() % 3;
 
 	switch(i){
@@ -35,8 +34,9 @@ Base *generate(void) {
 			// std::cout << "made a C" << std::endl;
 			return new C;
 			break;
+		default:
+			return NULL;
 	}
-	return NULL;
 }
 
 void	identify(Base *p) {
@@ -62,6 +62,8 @@ int	main(void) {
 	Base *one;
 	Base *two;
 	Base *three;
+
+	srand(time(NULL));
 
 	one = generate();
 	two = generate();
