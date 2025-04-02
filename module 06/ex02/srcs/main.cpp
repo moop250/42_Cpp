@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:34:49 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/02 14:43:37 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/02 16:58:23 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "../incl/C.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 #include <iostream>
 
 Base *generate(void) {
@@ -49,13 +50,33 @@ void	identify(Base *p) {
 }
 
 void	identify(Base &p) {
-	if (dynamic_cast<A*>(&p))
+	try {
+		A& a = dynamic_cast<A&>(p);
 		std::cout << "its a class of type \"A\"" << std::endl;
-	else if (dynamic_cast<B*>(&p))
-		std::cout << "its a class of type \"B\"" << std::endl;
-	else if (dynamic_cast<C*>(&p))
-		std::cout << "its a class of type \"C\"" << std::endl;
+		(void)a;
+	}
+	catch (const std::exception &e) {
+		(void)e;
 
+		try {
+			B& b = dynamic_cast<B&>(p);
+			std::cout << "its a class of type \"B\"" << std::endl;
+			(void)b;
+		}
+		catch (const std::exception &e) {
+			(void)e;
+
+			try {
+				C& c = dynamic_cast<C&>(p);
+				std::cout << "its a class of type \"C\"" << std::endl;
+				(void)c;
+			}
+			catch (const std::exception &e) {
+				(void)e;
+				std::cout << "Error: unknown class type" << std::endl;
+			}
+		}
+	}
 }
 
 int	main(void) {
