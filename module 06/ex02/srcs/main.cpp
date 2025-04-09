@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:34:49 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/09 15:28:25 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/09 16:39:57 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ int	main(void) {
 	two = generate();
 	three = generate();
 
-	std::cout << "--- Identify *p" << std::endl;
+	std::cout << "--- Identify *p ---" << std::endl;
 	identify(one);
 	identify(two);
 	identify(three);
 	std::cout << std::endl;
 
-	std::cout << "--- Identify *p" << std::endl;
+	std::cout << "--- Identify &p ---" << std::endl;
 
 	identify(*one);
 	identify(*two);
