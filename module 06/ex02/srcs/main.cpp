@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:34:49 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/02 16:58:23 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/09 15:28:25 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ Base *generate(void) {
 }
 
 void	identify(Base *p) {
-	if (dynamic_cast<A*>(p))
+	if (p == NULL)
+		std::cerr << "Error: Identify was fed a NULL pointer" << std::endl;
+	else if (dynamic_cast<A*>(p))
 		std::cout << "its a class of type \"A\"" << std::endl;
 	else if (dynamic_cast<B*>(p))
 		std::cout << "its a class of type \"B\"" << std::endl;
