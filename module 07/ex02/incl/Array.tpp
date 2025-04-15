@@ -6,14 +6,14 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:08:24 by hlibine           #+#    #+#             */
-/*   Updated: 2025/02/28 16:14:40 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/15 17:01:15 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 template<class T>
-Array<T>::Array(void) : len_(1), arr_(new T[1]) {}
+Array<T>::Array(void) : len_(0), arr_(new T[0]()) {}
 
 template<class T>
 Array<T>::Array(size_t n) : len_(n), arr_(new T[n]) {}
@@ -28,10 +28,10 @@ Array<T>::Array(const Array &src) : len_(src.len_), arr_(new T[src.len_]) {
 template<class T>
 Array<T>& Array<T>::operator=(const Array &src) {
 if (this != &src) {
+		this->len_ = src.len_;
 		delete [] this->arr_;
-		this->len_ = src.arr_;
 		this->arr_ = new T[this->len_];
-		for (int i = 0; i < this->len_; i++) {
+		for (size_t i = 0; i < this->len_; i++) {
 			this->arr_[i] = src.arr_[i];
 		}
 	}
