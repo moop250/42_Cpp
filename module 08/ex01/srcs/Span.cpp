@@ -6,17 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:05 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/06 16:21:51 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/16 17:18:22 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Span.hpp"
-#include <algorithm>
-#include <climits>
-#include <cstdlib>
-#include <ctime>
-#include <ostream>
-#include <vector>
 
 Span::Span(void) : _maxSize(0), _count(0) {std::cerr << "you should not be able to see this" << std::endl;};
 
@@ -54,7 +48,6 @@ void Span::addNumber(const unsigned int N) {
 }
 
 void Span::fillList(const unsigned int count, const int max) {
-	srand(time(0));
 	for (unsigned int i = 0; i < count; i++) {
 		if (this->_count  > this->_maxSize)
 			throw Span::OverCountException();

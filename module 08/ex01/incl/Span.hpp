@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:02 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/05 19:17:47 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/16 17:20:43 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <exception>
 #include <vector>
 #include <iostream>
+#include <climits>
+#include <algorithm>
 
 class Span {
 	private:

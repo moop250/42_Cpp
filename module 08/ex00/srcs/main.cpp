@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:26:44 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/03 16:39:32 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/16 16:25:58 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(void) {
 	lst = lstInit();
 	
 	try {
-		easyfind(lst, 78);
-		easyfind(lst, 42);
-		easyfind(lst, 876);
-		easyfind(lst, 1969);
+		std::cout << easyfind(lst, 78) << std::endl;
+		std::cout << easyfind(lst, 42) << std::endl;
+		std::cout << easyfind(lst, 876) << std::endl;
+		std::cout << easyfind(lst, 1969) << std::endl;
+		std::cout << easyfind(lst, 76) << std::endl;
 	}
 	catch(const std::exception& e) {
 		std::cerr << e.what();

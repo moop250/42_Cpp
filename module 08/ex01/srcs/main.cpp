@@ -6,13 +6,16 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:06 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/05 19:25:36 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/16 17:25:08 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Span.hpp"
+#include <ctime>
 
 int	main(void) {
+
+	srand(time(NULL));
 
 	std::cout << "---- Base Test ----" << std::endl;
 	try {
@@ -59,9 +62,9 @@ int	main(void) {
 	}
 	std::cout << "\n---- Mass Test ----" << std::endl;
 	try {
-		Span	sp(10000);
+		Span	sp(20);
 	
-		sp.fillList(10000, 1000000);
+		sp.fillList(20, 30);
 		std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 	}
