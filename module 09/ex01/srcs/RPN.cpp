@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:07 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/26 17:29:42 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/14 11:57:13 by hlibine          ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ size_t RPN::calculate(const std::string in) {
 				if (!strchr(WHITESPACE, tmp[pos])) {
 					++count;
 					if (count >= 2)
-		 				throw std::runtime_error("Invalid operator sequence");
+						throw std::runtime_error("Invalid operator sequence");
 				}
 			}
 		}
