@@ -20,7 +20,7 @@ Array<T>::Array(size_t n) : len_(n), arr_(new T[n]) {}
 
 template<class T>
 Array<T>::Array(const Array &src) : len_(src.len_), arr_(new T[src.len_]) {
-	for (int i = 0; i < src.len_; i++) {
+	for (size_t i = 0; i < src.len_; i++) {
 		arr_[i] = src.arr_[i];
 	}
 }
