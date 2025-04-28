@@ -20,7 +20,8 @@ int	main(void) {
 		Array<int>	int1;
 		Array<char>	str(0);
 		Array<int>	int2(4);
-	
+
+		std::cout << "char test" << std::endl;
 		for (int i = 0; i < 4; i++) {
 			try {
 				str[i] = i * 2;
@@ -30,14 +31,35 @@ int	main(void) {
 				std::cerr << e.what();
 			}
 		}
-		std::cout << std::endl;
+		std::cout << std::endl << "int1 test" << std::endl;
 		try {
 			std::cout << int1[0] << std::endl;
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what();
 		}
-		std::cout << std::endl;
+		std::cout << std::endl << "int2 tests" << std::endl;
+		for (int i = 0; i < 3; i++) {
+			try {
+				int2[i] = i * 2;
+				std::cout << int2[i] << std::endl;
+			}
+			catch(const std::exception& e) {
+				std::cerr << e.what();
+			}
+		}
+		std::cout << std::endl << "int1 retests" << std::endl;
+		int1 = int2;
+		int1[0] += 2;
+		for (int i = 0; i < 3; i++) {
+			try {
+				std::cout << int1[i] << std::endl;
+			}
+			catch(const std::exception& e) {
+				std::cerr << e.what();
+			}
+		}
+		std::cout << std::endl << "int2 retest" << std::endl;
 		for (int i = 0; i < 3; i++) {
 			try {
 				int2[i] = i * 2;
@@ -48,18 +70,8 @@ int	main(void) {
 			}
 		}
 		std::cout << std::endl;
-		int1 = int2;
-		for (int i = 0; i < 3; i++) {
-			try {
-				int1[i] = i * 2;
-				std::cout << int2[i] << std::endl;
-			}
-			catch(const std::exception& e) {
-				std::cerr << e.what();
-			}
-		}
 	}
-	std::cout << std::endl;
+	std::cout << "big test" << std::endl;
 	{
 		Array<int>	i(200);
 		int *j = new int[200];
