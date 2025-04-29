@@ -6,11 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:26:44 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/16 16:25:58 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/29 15:02:33 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/easyfind.hpp"
+#include "../utils/colors.h"
 #include <list>
 
 std::list<int> lstInit(void) {
@@ -39,7 +40,7 @@ int	main(void) {
 		std::cout << easyfind(lst, 76) << std::endl;
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what();
+		std::cerr << C_RED << e.what() << C_RESET;
 	}
 
 }
