@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:05 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/16 17:18:22 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/04/29 14:15:50 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void Span::addNumber(const unsigned int N) {
 	if (this->_count < this->_maxSize) {
 		++this->_count;
 		this->_N.push_back(N);
+		// std::cout << "added: " << N << std::endl;
 	}
 	else {
 		throw Span::OverCountException();
