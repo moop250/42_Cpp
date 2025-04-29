@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/25 17:15:59 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/29 16:01:35 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,21 @@
 class PmergeMe {
 	private:
 		static vi avToIt_(const char **av, const int ac);
-		static void swapPairs_(vi &vec, size_t index1, size_t index2);
+		static dq avToDq_(const char **av, const int ac);
 
 	public:
 		static void 	intake(int ac, const char **av);
 		static double	sortVector(const int ac, const char **av);
 		static double	sortDeque(const int ac, const char **av);
+};
+
+template<typename Container>
+class TPmergeMe {
+	private:
+		static void swapPairs_(Container &cont, size_t index1, size_t index2);
+
+	public:
+		static void sortCont(const size_t recLev, Container cont);
 };
 
 #endif

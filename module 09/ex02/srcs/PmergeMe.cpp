@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/25 17:38:09 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/29 16:03:58 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,30 @@
 #include <string>
 #include <utility>
 
+template<typename Container>
+void	TPmergeMe<Container>::swapPairs_(Container &cont, size_t index1, size_t index2) {
+	for (size_t i = index2 - index1; i > 0; i--) {
+		std::swap(cont[index1--], cont[index2--]);
+	}
+}
+
+template<typename Container>
+void TPmergeMe<Container>::sortCont(const size_t recLev, Container cont) {
+	
+	size_t	inc = std::pow(2, recLev);
+	for (size_t i = 0; i < cont.size(); i += inc * 2) {
+		size_t index1 = i + inc - 1;
+		size_t index2 = i + (inc * 2) - 1;
+		if (index2 <= cont.size() && cont[index1] > cont[index2])
+			swapPairs_(cont, index1, index2);
+	}
+	TPmergeMe<Container>::sortCont(recLev + 1, cont);
+
+		// Insertion sort
+/* 	while (recLev > 1) {
+	} */
+}
+
 void PmergeMe::intake(int ac, const char **av) {
 	long		num;
 
@@ -35,8 +59,6 @@ void PmergeMe::intake(int ac, const char **av) {
 	}
 }
 
-// template<typename Container>
-// PmergeMe<Container>::avToIt_(const char **av, const int ac) {
 vi PmergeMe::avToIt_(const char **av, const int ac) {
 	vi	out;
 
@@ -48,38 +70,13 @@ vi PmergeMe::avToIt_(const char **av, const int ac) {
 	return out;
 }
 
-void	PmergeMe::swapPairs_(vi &vec, size_t index1, size_t index2) {
-	for (size_t i = index2 - index1; i > 0; i--) {
-		std::swap(vec[index1--], vec[index2--]);
-	}
-}
-
 double PmergeMe::sortVector(const int ac, const char **av) {
-	vi vec =	avToIt_(av, ac);
-	vi base;
-	vi pend;
-	size_t		recLev = 0;
-//	bool		isOdd = vec.size() % 2;
+	vi vec = avToIt_(av, ac);
 
 	// start a timer
 	clock_t	timer_start = clock();
 
-	// Dividing into pairs and sorting
-	size_t	inc = 1;
-	while (vec.size() > inc) {
-		for (size_t i = 0; i < vec.size(); i += inc * 2) {
-			size_t index1 = i + inc - 1;
-			size_t index2 = i + (inc * 2) - 1;
-			if (index2 <= vec.size() && vec[index1] > vec[index2])
-				swapPairs_(vec, index1, index2);
-		}
-		++recLev;
-		inc =  std::pow(2, recLev);
-	}
-
-	// Insertion sort
-/* 	while (recLev > 1) {
-	} */
+	TPmergeMe<vi>::sortCont(0, vec);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
@@ -90,15 +87,24 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 	return timer;
 }
 
-// template<typename Container>
+dq PmergeMe::avToDq_(const char **av, const int ac) {
+	dq	out;
+
+	for (int i = 1; i <= ac - 1; i++) {
+		out.push_back(atoi(av[i]));
+	}
+
+	return out;
+}
+
 double PmergeMe::sortDeque(const int ac, const char **av) {
 
-	(void)ac;
-	(void)av;
+	dq deq = avToDq_(av, ac);
+
 	// start a timer
 	clock_t	timer_start = clock();
 
-	// sort
+	TPmergeMe<dq>::sortCont(0, deq);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
