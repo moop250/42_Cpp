@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/29 16:01:35 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/30 12:37:06 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 // template<typename Container>
 class PmergeMe {
 	private:
-		static vi avToIt_(const char **av, const int ac);
-		static dq avToDq_(const char **av, const int ac);
+		static	vi avToIt_(const char **av, const int ac);
+		static	dq avToDq_(const char **av, const int ac);
 
 	public:
 		static void 	intake(int ac, const char **av);
@@ -37,10 +37,14 @@ class PmergeMe {
 template<typename Container>
 class TPmergeMe {
 	private:
-		static void swapPairs_(Container &cont, size_t index1, size_t index2);
+		size_t	comparisons_;
+		void swapPairs_(Container &cont, size_t index1, size_t index2);
+		typedef typename Container::iterator Iterator;
 
 	public:
-		static void sortCont(const size_t recLev, Container cont);
+		TPmergeMe(void);
+		~TPmergeMe();
+		void sortCont(const size_t recLev, Container &cont, const int isOdd);
 };
 
 #endif

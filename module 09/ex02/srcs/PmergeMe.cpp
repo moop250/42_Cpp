@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/29 16:03:58 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/30 12:39:34 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,32 @@
 #include <utility>
 
 template<typename Container>
+TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0) {};
+
+template<typename Container>
+TPmergeMe<Container>::~TPmergeMe(void) {};
+
+template<typename Container>
 void	TPmergeMe<Container>::swapPairs_(Container &cont, size_t index1, size_t index2) {
-	for (size_t i = index2 - index1; i > 0; i--) {
-		std::swap(cont[index1--], cont[index2--]);
-	}
+	++comparisons_;
+	if (cont.at(index1) > cont.at(index2))
+		for (size_t i = index2 - index1; i > 0; i--) {
+			std::swap(cont.at(index1--), cont.at(index2--));
+		}
 }
 
 template<typename Container>
-void TPmergeMe<Container>::sortCont(const size_t recLev, Container cont) {
-	
-	size_t	inc = std::pow(2, recLev);
-	for (size_t i = 0; i < cont.size(); i += inc * 2) {
+void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const int isOdd) {
+	size_t inc = std::pow(2, recLev);
+	if (cont.size() < 2 * inc)
+		return;
+	size_t limit = cont.size() - (inc * 2) + 1;
+	for (size_t i = 0; i < limit; i += inc * 2) {
 		size_t index1 = i + inc - 1;
 		size_t index2 = i + (inc * 2) - 1;
-		if (index2 <= cont.size() && cont[index1] > cont[index2])
-			swapPairs_(cont, index1, index2);
+		swapPairs_(cont, index1, index2);
 	}
-	TPmergeMe<Container>::sortCont(recLev + 1, cont);
+	TPmergeMe<Container>::sortCont(recLev + 1, cont, isOdd);
 
 		// Insertion sort
 /* 	while (recLev > 1) {
@@ -72,15 +81,20 @@ vi PmergeMe::avToIt_(const char **av, const int ac) {
 
 double PmergeMe::sortVector(const int ac, const char **av) {
 	vi vec = avToIt_(av, ac);
+	TPmergeMe<vi> visort;
 
 	// start a timer
 	clock_t	timer_start = clock();
 
-	TPmergeMe<vi>::sortCont(0, vec);
+	visort.sortCont(0, vec, (ac - 1) % 2);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
 	// print the sorted list
+	for (size_t i = 0; i < vec.size(); i++) {
+		std::cout << vec.at(i) << " ";
+	}
+	std::cout << std::endl;
 
 	// return the saved time
 	clock_t	timer = (timer_end - timer_start) / CLOCKS_PER_SEC;
@@ -98,13 +112,13 @@ dq PmergeMe::avToDq_(const char **av, const int ac) {
 }
 
 double PmergeMe::sortDeque(const int ac, const char **av) {
-
 	dq deq = avToDq_(av, ac);
-
+	TPmergeMe<dq> dqsort;
+	
 	// start a timer
 	clock_t	timer_start = clock();
 
-	TPmergeMe<dq>::sortCont(0, deq);
+	dqsort.sortCont(0, deq, deq.size() % 2);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
