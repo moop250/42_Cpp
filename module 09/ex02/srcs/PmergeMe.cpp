@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/01 16:22:59 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/01 18:14:13 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <string>
 #include <utility>
 
 template<typename Container>
-TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0) {};
+TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0), currentJacobsthal(3), prevJacobsthal(1), lvlJacobsthal(4) {};
 
 template<typename Container>
 TPmergeMe<Container>::~TPmergeMe(void) {};
@@ -39,22 +38,28 @@ void	TPmergeMe<Container>::swapPairs_(Container &cont, size_t index1, size_t ind
 
 template<typename Container>
 void	TPmergeMe<Container>::moveTo_(Container &src, Container &dst, const size_t len) {
-/* 	std::cout << "size: " << src.size() << std::endl;
-	std::cout << "len: " << len << std::endl; */
 	for (size_t i = 0; i < len; i++) {
-/* 		std::cout << "i: " << i << std::endl; */
-		
 		dst.push_back(src.at(0));
 		src.erase(src.begin());
 	}
 }
 
 template<typename Container>
+void TPmergeMe<Container>::augmentJacobsthal_() {
+	prevJacobsthal = currentJacobsthal;
+	currentJacobsthal = (std::pow(2,lvlJacobsthal) - pow(-1, lvlJacobsthal)) / 3;
+	++lvlJacobsthal;
+}
+
+template<typename Container>
 void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const int isOdd) {
 	size_t inc = std::pow(2, recLev);
 	size_t inc2 = 2 * inc;
+	/*  Check to see if we have reached the end of the recursion*/
 	if (cont.size() < inc2)
 		return;
+
+	/*  Merge Sort  */
 	size_t limit = cont.size() - inc2 + 1;
 	for (size_t i = 0; i < limit; i += inc2) {
 		size_t index1 = i + inc - 1;
@@ -63,8 +68,7 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	}
 	TPmergeMe<Container>::sortCont(recLev + 1, cont, isOdd);
 
-	// Split numbers into main and pend
-
+	/*  Split numbers into main and pend  */
 	for (size_t i = 0; i < inc2; i++) {
 		main_.push_back(cont.at(0));
 		cont.erase(cont.begin());
@@ -78,8 +82,33 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	}
 	moveTo_(cont, non_, cont.size());
 
+/* 	std::cout << "main: ";
+	for (size_t i = 0; i < main_.size(); i++) {
+		std::cout << main_.at(i) << " ";
+	}
+	std::cout << std::endl;
 
-	// push everything back into cont
+	std::cout << "pend: ";
+	for (size_t i = 0; i < pend_.size(); i++) {
+		std::cout << pend_.at(i) << " ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "non: ";
+	for (size_t i = 0; i < non_.size(); i++) {
+		std::cout << non_.at(i) << " ";
+	}
+	std::cout << std::endl << std::endl;
+ */
+	/*  Insertion Sort  */
+	for (size_t i = 0, j = pend_.size() / inc; i < j; i++) {
+		int jacobsthalDiff = currentJacobsthal - prevJacobsthal;
+
+		augmentJacobsthal_();
+	}
+
+
+	/*  Push everything back into cont  */
 	moveTo_(main_, cont, main_.size());
 	moveTo_(pend_, cont, pend_.size());
 	moveTo_(non_, cont, non_.size());
@@ -122,6 +151,7 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
+
 	// print the sorted list
 	for (size_t i = 0; i < vec.size(); i++) {
 		std::cout << vec.at(i) << " ";
@@ -129,7 +159,7 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 	std::cout << std::endl;
 
 	// return the saved time
-	clock_t	timer = (timer_end - timer_start) / CLOCKS_PER_SEC;
+	double	timer = double(timer_end - timer_start) / CLOCKS_PER_SEC;
 	return timer;
 }
 

@@ -6,7 +6,7 @@
 #    By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 16:51:54 by hlibine           #+#    #+#              #
-#    Updated: 2025/04/14 10:57:40 by hlibine          ###   LAUSANNE.ch        #
+#    Updated: 2025/05/01 17:37:54 by hlibine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		= PmergeMe
 
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -O2 -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM			= rm -rf
 
