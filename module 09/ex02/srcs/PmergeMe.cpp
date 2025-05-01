@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/30 12:39:34 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/01 16:22:59 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,53 @@ void	TPmergeMe<Container>::swapPairs_(Container &cont, size_t index1, size_t ind
 }
 
 template<typename Container>
+void	TPmergeMe<Container>::moveTo_(Container &src, Container &dst, const size_t len) {
+/* 	std::cout << "size: " << src.size() << std::endl;
+	std::cout << "len: " << len << std::endl; */
+	for (size_t i = 0; i < len; i++) {
+/* 		std::cout << "i: " << i << std::endl; */
+		
+		dst.push_back(src.at(0));
+		src.erase(src.begin());
+	}
+}
+
+template<typename Container>
 void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const int isOdd) {
 	size_t inc = std::pow(2, recLev);
-	if (cont.size() < 2 * inc)
+	size_t inc2 = 2 * inc;
+	if (cont.size() < inc2)
 		return;
-	size_t limit = cont.size() - (inc * 2) + 1;
-	for (size_t i = 0; i < limit; i += inc * 2) {
+	size_t limit = cont.size() - inc2 + 1;
+	for (size_t i = 0; i < limit; i += inc2) {
 		size_t index1 = i + inc - 1;
-		size_t index2 = i + (inc * 2) - 1;
+		size_t index2 = i + inc2 - 1;
 		swapPairs_(cont, index1, index2);
 	}
 	TPmergeMe<Container>::sortCont(recLev + 1, cont, isOdd);
 
-		// Insertion sort
-/* 	while (recLev > 1) {
-	} */
+	// Split numbers into main and pend
+
+	for (size_t i = 0; i < inc2; i++) {
+		main_.push_back(cont.at(0));
+		cont.erase(cont.begin());
+	}
+
+	for (size_t i = 0, b = 0; i + inc < limit; i += inc) {
+		if (++b % 2)
+			moveTo_(cont, pend_, inc);
+		else
+			moveTo_(cont, main_, inc);
+	}
+	moveTo_(cont, non_, cont.size());
+
+
+	// push everything back into cont
+	moveTo_(main_, cont, main_.size());
+	moveTo_(pend_, cont, pend_.size());
+	moveTo_(non_, cont, non_.size());
+
+	return ;
 }
 
 void PmergeMe::intake(int ac, const char **av) {

@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/30 12:37:06 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/01 15:43:38 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ template<typename Container>
 class TPmergeMe {
 	private:
 		size_t	comparisons_;
+		void	moveTo_(Container &src, Container &dst, const size_t len);
+		Container	main_;
+		Container	pend_;
+		Container	non_;
 		void swapPairs_(Container &cont, size_t index1, size_t index2);
 		typedef typename Container::iterator Iterator;
 
