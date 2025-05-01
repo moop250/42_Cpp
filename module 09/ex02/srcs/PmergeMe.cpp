@@ -101,12 +101,15 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	std::cout << std::endl << std::endl;
  */
 	/*  Insertion Sort  */
-	for (size_t i = 0, j = pend_.size() / inc; i < j; i++) {
-		int jacobsthalDiff = currentJacobsthal - prevJacobsthal;
-
-		augmentJacobsthal_();
+	size_t jacobsthalDiff = currentJacobsthal - prevJacobsthal;
+	size_t count = jacobsthalDiff;
+	while (jacobsthalDiff--)
+		if (jacobsthalDiff > pend_.size())
+			break;
+		size_t bin = binarySearch_(pend_.at((count * inc) - 1), pow(2, (lvlJacobsthal + 1) - 1), inc);
 	}
 
+	augmentJacobsthal_();
 
 	/*  Push everything back into cont  */
 	moveTo_(main_, cont, main_.size());
