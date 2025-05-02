@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/02 13:45:36 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/02 14:40:56 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <cmath>
 #include <cstddef>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <deque>
@@ -49,6 +50,7 @@ class TPmergeMe {
 		void		moveTo_(Container &src, Container &dst, const size_t len);
 		void		swapPairs_(Container &cont, size_t index1, size_t index2);
 		void		augmentJacobsthal_();
+		size_t		binarySearch_(const size_t target, Container &cont, size_t inc);
 		typedef typename Container::iterator Iterator;
 
 	public:
@@ -85,6 +87,22 @@ void TPmergeMe<Container>::augmentJacobsthal_() {
 	prevJacobsthal = currentJacobsthal;
 	currentJacobsthal = (std::pow(2,lvlJacobsthal) - pow(-1, lvlJacobsthal)) / 3;
 	++lvlJacobsthal;
+}
+
+template<typename Container>
+size_t TPmergeMe<Container>::binarySearch_(const size_t target, Container &cont, size_t inc) {
+	size_t left = 0;
+	size_t right = cont.size() / inc;
+
+	while (left < right) {
+		size_t mid = left + (right - left) / 2;
+		if (static_cast<size_t>(cont.at(mid * inc + inc - 1)) < target) {
+			left = mid + 1;
+		} else {
+			right = mid;
+		}
+	}
+	return left * inc;
 }
 
 template<typename Container>
@@ -139,17 +157,26 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	/*  Insertion Sort  */
 	size_t jacobsthalDiff = currentJacobsthal - prevJacobsthal;
 	while (jacobsthalDiff) {
-		if (jacobsthalDiff > pend_.size())
+		if (jacobsthalDiff * inc > pend_.size())
 			break;
-		// size_t bin = binarySearch_(pend_.at((count * inc) - 1), pow(2, (lvlJacobsthal + 1) - 1), inc);
+		size_t bin = binarySearch_(pend_.at((jacobsthalDiff * inc) - 1), main_, inc);
+		main_.insert(main_.begin() + bin, pend_.begin() + (jacobsthalDiff * inc) - inc, pend_.begin() + jacobsthalDiff * inc);
+		pend_.erase(pend_.begin() + (jacobsthalDiff * inc) - inc, pend_.begin() + jacobsthalDiff * inc);
 		--jacobsthalDiff;
 	}
 
+	while (!pend_.empty()) {
+		// Get the top element of the last group in pend_
+		size_t bin = binarySearch_(pend_.at(pend_.size() - inc), main_, inc);
+
+		// Insert the group at the correct position
+		main_.insert(main_.begin() + bin, pend_.end() - inc, pend_.end());
+		pend_.erase(pend_.end() - inc, pend_.end());
+	}
 	augmentJacobsthal_();
 
 	/*  Push everything back into cont  */
 	moveTo_(main_, cont, main_.size());
-	moveTo_(pend_, cont, pend_.size());
 	moveTo_(non_, cont, non_.size());
 
 	return ;

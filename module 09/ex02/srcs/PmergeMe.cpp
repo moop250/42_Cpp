@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/02 13:53:07 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/02 14:13:14 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ dq PmergeMe::avToDq_(const char **av, const int ac) {
 double PmergeMe::sortDeque(const int ac, const char **av) {
 	dq deq = avToDq_(av, ac);
 	TPmergeMe<dq> dqsort;
-	
+
 	// start a timer
 	clock_t	timer_start = clock();
 
