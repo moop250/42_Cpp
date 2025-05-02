@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/02 14:40:56 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/02 15:49:41 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ size_t TPmergeMe<Container>::binarySearch_(const size_t target, Container &cont,
 
 	while (left < right) {
 		size_t mid = left + (right - left) / 2;
+		++comparisons_;
 		if (static_cast<size_t>(cont.at(mid * inc + inc - 1)) < target) {
 			left = mid + 1;
 		} else {
@@ -166,10 +167,8 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	}
 
 	while (!pend_.empty()) {
-		// Get the top element of the last group in pend_
 		size_t bin = binarySearch_(pend_.at(pend_.size() - inc), main_, inc);
 
-		// Insert the group at the correct position
 		main_.insert(main_.begin() + bin, pend_.end() - inc, pend_.end());
 		pend_.erase(pend_.end() - inc, pend_.end());
 	}
