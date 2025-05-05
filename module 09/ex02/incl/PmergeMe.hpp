@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/04 14:57:30 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 14:20:52 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,24 +138,6 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	}
 	moveTo_(cont, non_, cont.size());
 
-/* 	std::cout << "main: ";
-	for (size_t i = 0; i < main_.size(); i++) {
-		std::cout << main_.at(i) << " ";
-	}
-	std::cout << std::endl;
-
-	std::cout << "pend: ";
-	for (size_t i = 0; i < pend_.size(); i++) {
-		std::cout << pend_.at(i) << " ";
-	}
-	std::cout << std::endl;
-
-	std::cout << "non: ";
-	for (size_t i = 0; i < non_.size(); i++) {
-		std::cout << non_.at(i) << " ";
-	}
-	std::cout << std::endl << std::endl;
- */
 	/*  Insertion Sort  */
 	size_t jacobsthalDiff = currentJacobsthal - prevJacobsthal;
 	while (jacobsthalDiff) {
@@ -168,8 +150,7 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	}
 
 	while (!pend_.empty()) {
-		size_t bin = binarySearch_(pend_.at(pend_.size() - inc), main_, inc);
-
+		size_t bin = binarySearch_(pend_.at(pend_.size() - 1), main_, inc);
 		main_.insert(main_.begin() + bin, pend_.end() - inc, pend_.end());
 		pend_.erase(pend_.end() - inc, pend_.end());
 	}

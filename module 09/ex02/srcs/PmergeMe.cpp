@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/04 14:57:41 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 14:38:37 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 	clock_t	timer_end = clock();
 
 	// print the sorted list
+	std::cout << "After:\t";
 	for (size_t i = 0; i < vec.size(); i++) {
 		std::cout << vec.at(i) << " ";
 	}
 	std::cout << std::endl;
 
 	// return the saved time
-	double	timer = double(timer_end - timer_start) / CLOCKS_PER_SEC;
+	double	timer = timer_end - timer_start;
 	return timer;
 }
 
@@ -83,6 +84,6 @@ double PmergeMe::sortDeque(const int ac, const char **av) {
 	// print the sorted list
 
 	// return the saved time
-	clock_t	timer = (timer_end - timer_start) / CLOCKS_PER_SEC;
+	clock_t	timer = timer_end - timer_start;
 	return timer;
 }

@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:08:05 by hlibine           #+#    #+#             */
-/*   Updated: 2025/04/29 14:15:50 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/04/30 10:45:06 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 Span::Span(void) : _maxSize(0), _count(0) {std::cerr << "you should not be able to see this" << std::endl;};
 
-Span::Span(unsigned int N) : _maxSize(N),  _count(0) {
+Span::Span(unsigned int N) : _count(0) {
 	if (N < 2)
 		throw UnSpanException();
+	_N.resize(N);
 };
 
 Span::Span(const Span &src) {
