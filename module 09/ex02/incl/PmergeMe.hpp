@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 14:20:52 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 16:15:14 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <cmath>
 #include <cstddef>
 #include <iostream>
+#include <cstdlib>
+#include <exception>
 #include <string>
 #include <vector>
 #include <deque>
@@ -58,6 +60,7 @@ class TPmergeMe {
 		TPmergeMe(void);
 		~TPmergeMe();
 		void sortCont(const size_t recLev, Container &cont, const int isOdd);
+		void		isSorted(const Container &cont);
 };
 
 template<typename Container>
@@ -65,6 +68,14 @@ TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0), currentJacobsthal(3), p
 
 template<typename Container>
 TPmergeMe<Container>::~TPmergeMe(void) {};
+
+template<typename Container>
+void TPmergeMe<Container>::isSorted(const Container &cont) {
+	for (size_t i = 1; i < cont.size(); i++) {
+		if (cont.at(i) < cont.at(i - 1))
+			throw std::runtime_error("list was not sorted correctly");
+	}
+}
 
 template<typename Container>
 void	TPmergeMe<Container>::swapPairs_(Container &cont, size_t index1, size_t index2) {

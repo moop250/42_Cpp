@@ -6,16 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 10:57:58 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 14:40:46 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 16:16:00 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/PmergeMe.hpp"
-#include <climits>
-#include <ctime>
-#include <exception>
 #include <iomanip>
-#include <ios>
 #include <iostream>
 
 int	main(int ac, const char *av[]) {
