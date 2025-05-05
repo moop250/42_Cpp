@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 18:43:14 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/06 00:51:25 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 void PmergeMe::intake(int ac, const char **av) {
 	long		num;
 
-	for (int i = 2; i < ac; i++) {
+	for (int i = 1; i < ac; i++) {
 		num = atoi(av[i]);
 		if (num > INT_MAX || num < 0) {
 			std::ostringstream errorMessage;
-			errorMessage << av[i] << " contains an invalid value" << std::endl;
+			errorMessage << av[i] << " is too large, or below 0" << std::endl;
 			throw std::runtime_error(errorMessage.str());
+		}
+		for (size_t a = 0; av[i][a]; a++)
+		{
+			if (!std::isdigit(av[i][a]))
+			{
+				std::ostringstream errorMessage;
+				errorMessage << av[i] << " contains an invalid value" << std::endl;
+				throw std::runtime_error(errorMessage.str());
+			}
 		}
 	}
 }
