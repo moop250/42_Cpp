@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 16:14:37 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 17:11:10 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ double PmergeMe::sortDeque(const int ac, const char **av) {
 	// make sure the list is sorted
 	try {
 		dqsort.isSorted(deq);
-		exit(EXIT_FAILURE);
 	}
 	catch(std::exception &e) {
 		std::cerr << e.what() << std::endl;
+		exit(EXIT_FAILURE);
 	}
 
 	// return the saved time
