@@ -6,20 +6,11 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/02 14:13:14 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/04 14:57:41 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/PmergeMe.hpp"
-#include <climits>
-#include <cmath>
-#include <cstddef>
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-#include <sstream>
-#include <stdexcept>
-#include <utility>
 
 void PmergeMe::intake(int ac, const char **av) {
 	long		num;

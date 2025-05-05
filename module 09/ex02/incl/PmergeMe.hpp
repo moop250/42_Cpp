@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/02 15:49:41 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/04 14:57:30 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <climits>
+#include <sstream>
 
 #define vi std::vector<int>
 #define vit std::vector<int>::iterator
 #define dq std::deque<int>
 #define dqt std::deque<int>::iterator
 
-// template<typename Container>
 class PmergeMe {
 	private:
 		static	vi avToIt_(const char **av, const int ac);
