@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 16:15:14 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 18:34:57 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ class TPmergeMe {
 	public:
 		TPmergeMe(void);
 		~TPmergeMe();
-		void sortCont(const size_t recLev, Container &cont, const int isOdd);
+		void		sortCont(const size_t recLev, Container &cont, const int isOdd);
 		void		isSorted(const Container &cont);
+		size_t		getComparisons();
 };
 
 template<typename Container>
@@ -75,6 +76,11 @@ void TPmergeMe<Container>::isSorted(const Container &cont) {
 		if (cont.at(i) < cont.at(i - 1))
 			throw std::runtime_error("list was not sorted correctly");
 	}
+}
+
+template<typename Container>
+size_t	TPmergeMe<Container>::getComparisons(void) {
+	return comparisons_;
 }
 
 template<typename Container>

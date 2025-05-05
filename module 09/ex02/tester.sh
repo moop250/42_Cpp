@@ -1,7 +1,7 @@
 #!/bin/bash
 
 make
-
+echo ""
 # Check if PmergeMe exists and is executable
 if ! [ -x "./PmergeMe" ]; then
     echo "Error: ./PmergeMe does not exist or is not executable."

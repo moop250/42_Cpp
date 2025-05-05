@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 17:11:10 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/05 18:43:14 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 	}
 	std::cout << std::endl;
 
+	// std::cout << "Comparisons:\t" << visort.getComparisons() << std::endl;
+
 	// return the saved time
 	double	timer = timer_end - timer_start;
 	return timer;
@@ -99,6 +101,8 @@ double PmergeMe::sortDeque(const int ac, const char **av) {
 		std::cerr << e.what() << std::endl;
 		exit(EXIT_FAILURE);
 	}
+
+	// std::cout << "Comparisons:\t" << dqsort.getComparisons() << std::endl;
 
 	// return the saved time
 	clock_t	timer = timer_end - timer_start;
