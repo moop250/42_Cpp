@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:12 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 18:34:57 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/07 16:49:07 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,37 +43,64 @@ class PmergeMe {
 template<typename Container>
 class TPmergeMe {
 	private:
+		TPmergeMe(void);
+		Container	cont_;
 		size_t		comparisons_;
 		Container	main_;
 		Container	pend_;
 		Container	non_;
-		size_t		currentJacobsthal;
-		size_t		prevJacobsthal;
-		size_t		lvlJacobsthal;
+		size_t		currentJacobsthal_;
+		size_t		prevJacobsthal_;
+		size_t		lvlJacobsthal_;
 		void		moveTo_(Container &src, Container &dst, const size_t len);
 		void		swapPairs_(Container &cont, size_t index1, size_t index2);
 		void		augmentJacobsthal_();
 		size_t		binarySearch_(const size_t target, Container &cont, size_t inc);
-		typedef typename Container::iterator Iterator;
 
 	public:
-		TPmergeMe(void);
+		TPmergeMe<Container>(Container cont);
+		TPmergeMe<Container>(const TPmergeMe<Container> &src);
+		TPmergeMe<Container>& operator=(const TPmergeMe<Container> &src);
 		~TPmergeMe();
-		void		sortCont(const size_t recLev, Container &cont, const int isOdd);
-		void		isSorted(const Container &cont);
+		void		sortCont(const size_t recLev);
+		void		isSorted();
 		size_t		getComparisons();
+		void		printCont();
 };
 
 template<typename Container>
-TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0), currentJacobsthal(3), prevJacobsthal(1), lvlJacobsthal(4) {};
+TPmergeMe<Container>::TPmergeMe(void) : comparisons_(0), currentJacobsthal_(3), prevJacobsthal_(1), lvlJacobsthal_(4) {};
+
+template<typename Container>
+TPmergeMe<Container>::TPmergeMe(Container cont) : cont_(cont), comparisons_(0), currentJacobsthal_(3), prevJacobsthal_(1), lvlJacobsthal_(4) {};
+
+template<typename Container>
+TPmergeMe<Container>::TPmergeMe(const TPmergeMe<Container> &src) :
+	cont_(src.cont_),
+	comparisons_(src.comparisons_),
+	currentJacobsthal_(src.currentJacobsthal_),
+	prevJacobsthal_(src.prevJacobsthal_),
+	lvlJacobsthal_(src.lvlJacobsthal_) {}
+
+template<typename Container>
+TPmergeMe<Container>& TPmergeMe<Container>::operator=(const TPmergeMe<Container> &src) {
+	if (src != this) {
+		this->cont_ = src.cont_;
+		this->comparisons_ = src.comparisons_;
+		this->currentJacobsthal_ = src.currentJacobsthal_;
+		this->prevJacobsthal_ = src.prevJacobsthal_;
+		this->lvlJacobsthal_ = src.lvlJacobsthal_;
+	}
+	return *this;
+}
 
 template<typename Container>
 TPmergeMe<Container>::~TPmergeMe(void) {};
 
 template<typename Container>
-void TPmergeMe<Container>::isSorted(const Container &cont) {
-	for (size_t i = 1; i < cont.size(); i++) {
-		if (cont.at(i) < cont.at(i - 1))
+void TPmergeMe<Container>::isSorted() {
+	for (size_t i = 1; i < cont_.size(); i++) {
+		if (cont_.at(i) < cont_.at(i - 1))
 			throw std::runtime_error("list was not sorted correctly");
 	}
 }
@@ -81,6 +108,14 @@ void TPmergeMe<Container>::isSorted(const Container &cont) {
 template<typename Container>
 size_t	TPmergeMe<Container>::getComparisons(void) {
 	return comparisons_;
+}
+
+template<typename Container>
+void TPmergeMe<Container>::printCont(void) {
+	for (size_t i = 0; i < cont_.size(); i++) {
+		std::cout << cont_.at(i) << " ";
+	}
+	std::cout << std::endl;
 }
 
 template<typename Container>
@@ -102,9 +137,9 @@ void	TPmergeMe<Container>::moveTo_(Container &src, Container &dst, const size_t 
 
 template<typename Container>
 void TPmergeMe<Container>::augmentJacobsthal_() {
-	prevJacobsthal = currentJacobsthal;
-	currentJacobsthal = (std::pow(2,lvlJacobsthal) - pow(-1, lvlJacobsthal)) / 3;
-	++lvlJacobsthal;
+	prevJacobsthal_ = currentJacobsthal_;
+	currentJacobsthal_ = (std::pow(2,lvlJacobsthal_) - pow(-1, lvlJacobsthal_)) / 3;
+	++lvlJacobsthal_;
 }
 
 template<typename Container>
@@ -125,38 +160,38 @@ size_t TPmergeMe<Container>::binarySearch_(const size_t target, Container &cont,
 }
 
 template<typename Container>
-void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const int isOdd) {
+void TPmergeMe<Container>::sortCont(const size_t recLev) {
 	size_t inc = std::pow(2, recLev);
 	size_t inc2 = 2 * inc;
 	/*  Check to see if we have reached the end of the recursion  */
-	if (cont.size() < inc2)
+	if (cont_.size() < inc2)
 		return;
 
 	/*  Merge Sort  */
-	size_t limit = cont.size() - inc2 + 1;
+	size_t limit = cont_.size() - inc2 + 1;
 	for (size_t i = 0; i < limit; i += inc2) {
 		size_t index1 = i + inc - 1;
 		size_t index2 = i + inc2 - 1;
-		swapPairs_(cont, index1, index2);
+		swapPairs_(cont_, index1, index2);
 	}
-	TPmergeMe<Container>::sortCont(recLev + 1, cont, isOdd);
+	TPmergeMe<Container>::sortCont(recLev + 1);
 
 	/*  Split numbers into main and pend  */
 	for (size_t i = 0; i < inc2; i++) {
-		main_.push_back(cont.at(0));
-		cont.erase(cont.begin());
+		main_.push_back(cont_.at(0));
+		cont_.erase(cont_.begin());
 	}
 
 	for (size_t i = 0, b = 0; i + inc < limit; i += inc) {
 		if (++b % 2)
-			moveTo_(cont, pend_, inc);
+			moveTo_(cont_, pend_, inc);
 		else
-			moveTo_(cont, main_, inc);
+			moveTo_(cont_, main_, inc);
 	}
-	moveTo_(cont, non_, cont.size());
+	moveTo_(cont_, non_, cont_.size());
 
 	/*  Insertion Sort  */
-	size_t jacobsthalDiff = currentJacobsthal - prevJacobsthal;
+	size_t jacobsthalDiff = currentJacobsthal_ - prevJacobsthal_;
 	while (jacobsthalDiff) {
 		if (jacobsthalDiff * inc > pend_.size())
 			break;
@@ -174,8 +209,8 @@ void TPmergeMe<Container>::sortCont(const size_t recLev, Container &cont, const 
 	augmentJacobsthal_();
 
 	/*  Push everything back into cont  */
-	moveTo_(main_, cont, main_.size());
-	moveTo_(non_, cont, non_.size());
+	moveTo_(main_, cont_, main_.size());
+	moveTo_(non_, cont_, non_.size());
 
 	return ;
 }

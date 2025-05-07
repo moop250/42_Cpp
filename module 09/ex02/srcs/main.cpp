@@ -6,13 +6,14 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 10:57:58 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/05 18:40:02 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/07 16:46:55 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/PmergeMe.hpp"
 #include <iomanip>
 #include <iostream>
+#include "../utils/colors.h"
 
 int	main(int ac, const char *av[]) {
 
@@ -25,11 +26,6 @@ int	main(int ac, const char *av[]) {
 
 	try {
 		PmergeMe::intake(ac, av);
-		std::cout << "Before:\t";
-		for (int i = 1; i <= ac - 1; i++) {
-			std::cout << av[i] << " ";
-		}
-		std::cout << std::endl;
 		time1 = PmergeMe::sortVector(ac, av);
 		time2 = PmergeMe::sortDeque(ac, av);
 		std::cout << "Time to process a range of "
@@ -42,7 +38,7 @@ int	main(int ac, const char *av[]) {
 			<< " us" << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << C_RED << "Error: " << e.what() << C_RESET << std::endl;
 		return 2;
 	}
 

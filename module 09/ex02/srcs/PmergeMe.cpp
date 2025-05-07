@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:41:16 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/06 00:51:25 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/07 16:48:12 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void PmergeMe::intake(int ac, const char **av) {
 			if (!std::isdigit(av[i][a]))
 			{
 				std::ostringstream errorMessage;
-				errorMessage << av[i] << " contains an invalid value" << std::endl;
+				errorMessage << "\"" << av[i] << "\" contains an invalid value" << std::endl;
 				throw std::runtime_error(errorMessage.str());
 			}
 		}
@@ -47,19 +47,22 @@ vi PmergeMe::avToIt_(const char **av, const int ac) {
 
 double PmergeMe::sortVector(const int ac, const char **av) {
 	vi vec = avToIt_(av, ac);
-	TPmergeMe<vi> visort;
+	TPmergeMe<vi> visort(vec);
+
+	std::cout << "Before:\t";
+	visort.printCont();
 
 	// start a timer
 	clock_t	timer_start = clock();
 
-	visort.sortCont(0, vec, vec.size() % 2);
+	visort.sortCont(0);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
 	
 	// make sure the list is sorted
 	try {
-		visort.isSorted(vec);
+		visort.isSorted();
 	}
 	catch(std::exception &e) {
 		std::cerr << e.what() << std::endl;
@@ -68,10 +71,7 @@ double PmergeMe::sortVector(const int ac, const char **av) {
 
 	// print the sorted list
 	std::cout << "After:\t";
-	for (size_t i = 0; i < vec.size(); i++) {
-		std::cout << vec.at(i) << " ";
-	}
-	std::cout << std::endl;
+	visort.printCont();
 
 	// std::cout << "Comparisons:\t" << visort.getComparisons() << std::endl;
 
@@ -92,19 +92,19 @@ dq PmergeMe::avToDq_(const char **av, const int ac) {
 
 double PmergeMe::sortDeque(const int ac, const char **av) {
 	dq deq = avToDq_(av, ac);
-	TPmergeMe<dq> dqsort;
+	TPmergeMe<dq> dqsort(deq);
 
 	// start a timer
 	clock_t	timer_start = clock();
 
-	dqsort.sortCont(0, deq, deq.size() % 2);
+	dqsort.sortCont(0);
 
 	// save time it took to complete operation
 	clock_t	timer_end = clock();
 
 	// make sure the list is sorted
 	try {
-		dqsort.isSorted(deq);
+		dqsort.isSorted();
 	}
 	catch(std::exception &e) {
 		std::cerr << e.what() << std::endl;
