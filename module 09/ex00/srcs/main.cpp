@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:53:06 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/20 17:19:40 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/05/07 14:56:41 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "../utils/colors.h"
 
 
 int main(int ac, char **av) {
@@ -27,7 +28,7 @@ int main(int ac, char **av) {
 		btc.init();
 	}
 	catch (std::exception &e) {
-		std::cerr << "Error: " << e.what();
+		std::cerr << C_RED << "Error: " << e.what() << C_CLEAR;
 		return 2;
 	}
 	file.open(av[1]);

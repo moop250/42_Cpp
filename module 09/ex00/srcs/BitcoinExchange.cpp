@@ -6,11 +6,12 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:59:01 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/20 17:25:26 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/05/07 15:07:36 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/BitcoinExchange.hpp"
+#include "../utils/colors.h"
 
 BtcEx::BtcEx() {std::cerr << "you should not be able to call this" << std::endl;}
 
@@ -65,18 +66,18 @@ void	sanatize(const std::string str, int mode) {
 		valid = VALID_TXT;
 	for (size_t i = 0, len = str.length(); i < len; i++) {
 		if (!strchr(valid.c_str(), str[i]))
-			throw std::runtime_error("invalid character");
+			throw std::runtime_error("invalid character =>");
 		if (strchr(",|", str[i])) {
 			++count;
 			if (count >= 2)
-				throw std::runtime_error("mutliple seperators");
+				throw std::runtime_error("mutliple seperators =>");
 		}
 	}
 }
 
 std::string rtrim(const std::string &s) {
-    size_t end = s.find_last_not_of(WHITESPACE);
-    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+	size_t end = s.find_last_not_of(WHITESPACE);
+	return (end == std::string::npos) ? "" : s.substr(0, end + 1);
 }
 
 void BtcEx::init() {
@@ -95,17 +96,17 @@ void BtcEx::init() {
 			sanatize(line, 0);
 		}
 		catch (const std::exception &e) {
-			std::cerr << "Error: " << e.what() << " " << line << std::endl;
+			std::cerr << C_RED << "Error: " << e.what() << " " << C_YELLOW << line << C_RESET << std::endl;
 			continue ;
 		}
 		pos = line.find(',');
 		if (pos == std::string::npos) {
-			std::cerr << "Invalid data format: " << line << std::endl;
+			std::cerr << C_RED << "Invalid data format: " << C_YELLOW << line << C_RESET << std::endl;
 			continue ;
 		}
 		tmp = rtrim(line);
 		if (pos == tmp.length() - 1) {
-			std::cerr << "Invalid data format: " << line << std::endl;
+			std::cerr << C_RED << "Invalid data format: " << C_YELLOW << line << C_RESET << std::endl;
 			continue ;
 		}
 		try {
@@ -113,7 +114,7 @@ void BtcEx::init() {
 			checkDate(date);
 		}
 		catch (const std::exception &e) {
-			std::cerr << "Invalid date: " << date << std::endl;
+			std::cerr << C_RED << "Invalid date: " << C_YELLOW << date << C_RESET << std::endl;
 			(void)e;
 			continue ;
 		}
@@ -123,7 +124,7 @@ void BtcEx::init() {
 		if (val >= 0 && end != NULL && *end == '\0')
 			this->data_[date] = val;
 		else
-			std::cerr << "Error: \"" << num << "\" invalid" << std::endl; 
+			std::cerr << C_RED << "Error: \"" << C_YELLOW << num << C_RED << "\" invalid" << C_RESET << std::endl; 
 	}
 	file.close();
 }
@@ -136,7 +137,7 @@ void BtcEx::printMult(const std::string &date, const float num) {
 		++it;
 	}
 	if (date < this->data_.begin()->first)
-		std::cerr << "Date " << date << " is before any date in the database" << std::endl;
+		std::cerr << C_RED << "Date " << C_YELLOW << date << C_RED << "is before any date in the database" << C_RESET << std::endl;
 	else if (it->first == date) 
 		std::cout << date << " => " << num << " = " << std::setprecision(8) << it->second * num << std::endl;
 	else {
@@ -157,16 +158,16 @@ void BtcEx::process(std::ifstream &file) {
 			sanatize(line, 1);
 		}
 		catch (const std::exception &e) {
-			std::cerr << "Error: " << e.what() << " " << line << std::endl;
+			std::cerr << C_RED << "Error: " << e.what() << C_YELLOW << " " << line << C_RESET << std::endl;
 			continue ;
 		}
 		pos = line.find('|');
 		if (pos  == std::string::npos) {
-			std::cerr << "Error: Bad input => " << line << std::endl;
+			std::cerr << C_RED << "Error: Bad input => " << C_YELLOW << line << C_RESET << std::endl;
 			 continue ;
 		}
 		if (rtrim(line)[pos + 1] == '\0') {
-			std::cerr << "Error: Bad input => " << line << std::endl;
+			std::cerr << C_RED << "Error: Bad input => " << C_YELLOW << line << C_RESET << std::endl;
 			continue ;
 		}
 		try {
@@ -174,21 +175,21 @@ void BtcEx::process(std::ifstream &file) {
 			checkDate(date);
 		}
 		catch (const std::exception &e) {
-			std::cerr << "Error: Bad date => " << line.substr(0, pos) << std::endl;
+			std::cerr << C_RED << "Error: Bad date => " << C_YELLOW << line.substr(0, pos) << C_RESET << std::endl;
 			(void)e;
 			continue ;
 		}
 		num = std::strtod(line.substr(pos + 1).c_str(), &end);
 		if (end == NULL && *end != '\0') {
-			std::cerr << "Error: Bad number => " << line.substr(pos + 1) << std::endl;
+			std::cerr << C_RED << "Error: Bad number => " << C_YELLOW << line.substr(pos + 1) << C_RESET << std::endl;
 			continue ;
 		}
 		if (num < 0) {
-			std::cerr << "Error: not a positive number" << std::endl;
+			std::cerr << C_RED << "Error: not a positive number" << C_RESET << std::endl;
 			continue ;
 		}
 		if (num > INT_MAX) {
-			std::cerr << "Error: too large a number" << std::endl;
+			std::cerr << C_RED << "Error: too large a number" << C_RESET << std::endl;
 			continue ;
 		}
 		printMult(date, num);
