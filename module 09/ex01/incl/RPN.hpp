@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:06 by hlibine           #+#    #+#             */
-/*   Updated: 2025/03/26 17:29:33 by hlibine          ###   LAUSANNE.ch       */
+/*   Updated: 2025/05/07 17:01:09 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 class RPN {
 	public:
 		static size_t calculate(const std::string in);
+		virtual ~RPN() = 0;
 };
 
 #endif

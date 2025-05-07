@@ -6,11 +6,13 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:07 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/07 15:57:01 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/07 17:03:27 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/RPN.hpp"
+
+RPN::~RPN() {}
 
 size_t RPN::calculate(const std::string in) {
 	std::stack<int>	stack;
