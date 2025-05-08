@@ -6,7 +6,7 @@
 /*   By: hlibine <hlibine@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:15:07 by hlibine           #+#    #+#             */
-/*   Updated: 2025/05/07 17:03:27 by hlibine          ###   ########.fr       */
+/*   Updated: 2025/05/08 13:58:25 by hlibine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 RPN::~RPN() {}
 
-size_t RPN::calculate(const std::string in) {
-	std::stack<int>	stack;
-	std::string		tmp;
-	size_t			i = 0, j = 0;
-	int				num1, num2;
+long RPN::calculate(const std::string in) {
+	std::stack<long>	stack;
+	std::string			tmp;
+	size_t				i = 0, j = 0;
+	long				num1, num2;
 
 	while (in[i]) {
 		bool			numbers = true;
